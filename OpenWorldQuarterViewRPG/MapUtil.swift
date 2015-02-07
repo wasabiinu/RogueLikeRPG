@@ -5,10 +5,12 @@
 //  Created by 横山 優 on 2015/02/07.
 //  Copyright (c) 2015年 Yu Yokoyama. All rights reserved.
 //
+//Mapで使う機能を実装します
 
 import SpriteKit
 
 class MapUtil {
+    //受け取ったサイズのレクタングルとタイプでエリアを作って、受け取った親に加えます
     class func createRectArea(let world:SKNode, let rect:CGRect, let type:Int)
     {
         var dx:Int = Int(rect.origin.x)
@@ -26,9 +28,7 @@ class MapUtil {
         }
     }
     
-    /**
-    * レクタングルを縦横どちらかランダムに2分割して返す
-    */
+    //レクタングルを縦横どちらかランダムに2分割して返します
     class func splitRect(let OriginalRect:CGRect) -> (CGRect, CGRect)
     {
         var direction:Int = Int(arc4random_uniform(2))
@@ -44,7 +44,7 @@ class MapUtil {
             rect1 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y, splitWidth, OriginalRect.size.height)
             rect2 = CGRectMake(OriginalRect.origin.x + splitWidth, OriginalRect.origin.y, OriginalRect.size.width - rect1.size.width, OriginalRect.size.height)
         }
-            //縦分割
+        //縦分割
         else
         {
             var seedHeight:UInt32 = UInt32(OriginalRect.size.height) - 1
