@@ -28,15 +28,17 @@ class GameScene: SKScene {
         
         var rect1:CGRect = CGRectMake(0, 0, 20, 20)
         var rect2:CGRect = CGRectMake(0, 0, 20, 20)
-        for (var width:Int = Int(rect1.size.width), height:Int = Int(rect1.size.height), i:Int = 0; width > 1 || height > 1; i++)
+        var i:Int = 0;
+        for (var width:Int = Int(rect1.size.width), height:Int = Int(rect1.size.height); width > 2 && height > 2 && i < 8; i++)
         {
             (rect1, rect2) = MapUtil.splitRect(rect1)
-            MapUtil.createRectArea(myWorld, rect: rect1, type: 2)
+            MapUtil.createRectArea(myWorld, rect: rect1, type: i)
             width = Int(rect2.size.width)
             height = Int(rect2.size.height)
+            rect1 = rect2
             println(i)
         }
-        MapUtil.createRectArea(myWorld, rect: rect2, type: 2)
+        MapUtil.createRectArea(myWorld, rect: rect2, type: i)
         
         self.addChild(myWorld)
     }
