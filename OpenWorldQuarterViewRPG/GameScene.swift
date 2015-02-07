@@ -24,24 +24,19 @@ class GameScene: SKScene {
         camera.name = "camera"
         myWorld.addChild(camera)
         
+        var OriginalRect:CGRect = CGRectMake(0, 0, 20, 20)
         
-        /*
-        for (var y = 0; y < 20; y++)
+        var rect1:CGRect = CGRectMake(0, 0, 20, 20)
+        var rect2:CGRect = CGRectMake(0, 0, 20, 20)
+        for (var width:Int = Int(rect1.size.width), height:Int = Int(rect1.size.height), i:Int = 0; width > 1 || height > 1; i++)
         {
-            for (var x = 0; x < 20; x++)
-            {
-                var groundChip:MapChip = GroundGreen(num:0)
-                groundChip.position(x, gridY: y, z: 0)
-                myWorld.addChild(groundChip.node)
-            }
+            (rect1, rect2) = MapUtil.splitRect(rect1)
+            MapUtil.createRectArea(myWorld, rect: rect1, type: 2)
+            width = Int(rect2.size.width)
+            height = Int(rect2.size.height)
+            println(i)
         }
-        */
-        
-        
-        let(rect1, rect2) = MapUtil.splitRect(CGRectMake(0, 0, 20, 20))
-        
-        MapUtil.createRectArea(myWorld, rect: rect1, type: 2)
-        MapUtil.createRectArea(myWorld, rect: rect2, type: 3)
+        MapUtil.createRectArea(myWorld, rect: rect2, type: 2)
         
         self.addChild(myWorld)
     }

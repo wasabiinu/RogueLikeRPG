@@ -39,16 +39,22 @@ class MapUtil {
         //横分割
         if (direction == 1)
         {
-            var seedWidth:UInt32 = UInt32(OriginalRect.size.width) - 1
-            var splitWidth:CGFloat = CGFloat(arc4random_uniform(seedWidth))
+            //横幅の1/2
+            var seedWidth:UInt32 = UInt32(OriginalRect.size.width  / 2)
+            //横幅の1/4〜3/4にする
+            //横幅の0〜1/2を作り、1/4を加える
+            var splitWidth:CGFloat = CGFloat(arc4random_uniform(seedWidth) + seedWidth / 2)
             rect1 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y, splitWidth, OriginalRect.size.height)
             rect2 = CGRectMake(OriginalRect.origin.x + splitWidth, OriginalRect.origin.y, OriginalRect.size.width - rect1.size.width, OriginalRect.size.height)
         }
         //縦分割
         else
         {
-            var seedHeight:UInt32 = UInt32(OriginalRect.size.height) - 1
-            var splitHeight:CGFloat = CGFloat(arc4random_uniform(seedHeight))
+            //縦幅の1/2
+            var seedHeight:UInt32 = UInt32(OriginalRect.size.height / 2)
+            //縦幅の1/4〜3/4にする
+            //縦幅の0〜1/2を作り、1/4を加える
+            var splitHeight:CGFloat = CGFloat(arc4random_uniform(seedHeight) + seedHeight / 2)
             rect1 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y, OriginalRect.size.width, splitHeight)
             rect2 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y + splitHeight, OriginalRect.size.width, OriginalRect.size.height - rect1.size.height)
         }
