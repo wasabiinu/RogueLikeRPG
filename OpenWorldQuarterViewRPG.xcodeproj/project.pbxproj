@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		202148001A839F4400070FA1 /* mapchip.png in Resources */ = {isa = PBXBuildFile; fileRef = 202147FF1A839F4300070FA1 /* mapchip.png */; };
 		2028EDA11A824F4700894577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDA01A824F4700894577 /* AppDelegate.swift */; };
 		2028EDA31A824F4700894577 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDA21A824F4700894577 /* GameScene.sks */; };
 		2028EDA51A824F4700894577 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDA41A824F4700894577 /* GameScene.swift */; };
@@ -15,6 +16,17 @@
 		2028EDAC1A824F4700894577 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDAB1A824F4700894577 /* Images.xcassets */; };
 		2028EDAF1A824F4700894577 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDAD1A824F4700894577 /* LaunchScreen.xib */; };
 		2028EDBB1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDBA1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift */; };
+		2028EDC51A826A4B00894577 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDC41A826A4B00894577 /* ball.png */; };
+		2080E2691A83D67F00ED0780 /* ground.green.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2681A83D67F00ED0780 /* ground.green.0.png */; };
+		2080E26C1A83D68900ED0780 /* ground.green.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26A1A83D68900ED0780 /* ground.green.1.png */; };
+		2080E26D1A83D68900ED0780 /* ground.green.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26B1A83D68900ED0780 /* ground.green.2.png */; };
+		2080E2751A83D69400ED0780 /* ground.green.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26E1A83D69400ED0780 /* ground.green.3.png */; };
+		2080E2761A83D69400ED0780 /* ground.green.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26F1A83D69400ED0780 /* ground.green.4.png */; };
+		2080E2771A83D69400ED0780 /* ground.green.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2701A83D69400ED0780 /* ground.green.5.png */; };
+		2080E2781A83D69400ED0780 /* ground.green.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2711A83D69400ED0780 /* ground.green.6.png */; };
+		2080E2791A83D69400ED0780 /* ground.green.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2721A83D69400ED0780 /* ground.green.7.png */; };
+		2080E27A1A83D69400ED0780 /* ground.green.8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2731A83D69400ED0780 /* ground.green.8.png */; };
+		2080E27B1A83D69400ED0780 /* ground.green.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2741A83D69400ED0780 /* ground.green.9.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		202147FF1A839F4300070FA1 /* mapchip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapchip.png; sourceTree = "<group>"; };
 		2028ED9B1A824F4700894577 /* OpenWorldQuarterViewRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWorldQuarterViewRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028ED9F1A824F4700894577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2028EDA01A824F4700894577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +53,17 @@
 		2028EDB41A824F4700894577 /* OpenWorldQuarterViewRPGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenWorldQuarterViewRPGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028EDB91A824F4700894577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2028EDBA1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWorldQuarterViewRPGTests.swift; sourceTree = "<group>"; };
+		2028EDC41A826A4B00894577 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		2080E2681A83D67F00ED0780 /* ground.green.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.0.png; sourceTree = "<group>"; };
+		2080E26A1A83D68900ED0780 /* ground.green.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.1.png; sourceTree = "<group>"; };
+		2080E26B1A83D68900ED0780 /* ground.green.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.2.png; sourceTree = "<group>"; };
+		2080E26E1A83D69400ED0780 /* ground.green.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.3.png; sourceTree = "<group>"; };
+		2080E26F1A83D69400ED0780 /* ground.green.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.4.png; sourceTree = "<group>"; };
+		2080E2701A83D69400ED0780 /* ground.green.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.5.png; sourceTree = "<group>"; };
+		2080E2711A83D69400ED0780 /* ground.green.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.6.png; sourceTree = "<group>"; };
+		2080E2721A83D69400ED0780 /* ground.green.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.7.png; sourceTree = "<group>"; };
+		2080E2731A83D69400ED0780 /* ground.green.8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.8.png; sourceTree = "<group>"; };
+		2080E2741A83D69400ED0780 /* ground.green.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.9.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +84,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		202147FE1A839F2100070FA1 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				202148011A83B5A000070FA1 /* map */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		202148011A83B5A000070FA1 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				202147FF1A839F4300070FA1 /* mapchip.png */,
+				202148021A83B5AE00070FA1 /* ground */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		202148021A83B5AE00070FA1 /* ground */ = {
+			isa = PBXGroup;
+			children = (
+				202148031A83B5B900070FA1 /* green */,
+			);
+			name = ground;
+			sourceTree = "<group>";
+		};
+		202148031A83B5B900070FA1 /* green */ = {
+			isa = PBXGroup;
+			children = (
+				2080E26E1A83D69400ED0780 /* ground.green.3.png */,
+				2080E26F1A83D69400ED0780 /* ground.green.4.png */,
+				2080E2701A83D69400ED0780 /* ground.green.5.png */,
+				2080E2711A83D69400ED0780 /* ground.green.6.png */,
+				2080E2721A83D69400ED0780 /* ground.green.7.png */,
+				2080E2731A83D69400ED0780 /* ground.green.8.png */,
+				2080E2741A83D69400ED0780 /* ground.green.9.png */,
+				2080E26A1A83D68900ED0780 /* ground.green.1.png */,
+				2080E26B1A83D68900ED0780 /* ground.green.2.png */,
+				2080E2681A83D67F00ED0780 /* ground.green.0.png */,
+			);
+			name = green;
+			sourceTree = "<group>";
+		};
 		2028ED921A824F4700894577 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +147,8 @@
 		2028ED9D1A824F4700894577 /* OpenWorldQuarterViewRPG */ = {
 			isa = PBXGroup;
 			children = (
+				202147FE1A839F2100070FA1 /* image */,
+				2028EDC41A826A4B00894577 /* ball.png */,
 				2028EDA01A824F4700894577 /* AppDelegate.swift */,
 				2028EDA21A824F4700894577 /* GameScene.sks */,
 				2028EDA41A824F4700894577 /* GameScene.swift */,
@@ -198,8 +266,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2080E2751A83D69400ED0780 /* ground.green.3.png in Resources */,
 				2028EDAF1A824F4700894577 /* LaunchScreen.xib in Resources */,
+				2080E2771A83D69400ED0780 /* ground.green.5.png in Resources */,
+				2080E2691A83D67F00ED0780 /* ground.green.0.png in Resources */,
+				2080E26D1A83D68900ED0780 /* ground.green.2.png in Resources */,
+				2080E27A1A83D69400ED0780 /* ground.green.8.png in Resources */,
+				2080E26C1A83D68900ED0780 /* ground.green.1.png in Resources */,
+				2028EDC51A826A4B00894577 /* ball.png in Resources */,
+				202148001A839F4400070FA1 /* mapchip.png in Resources */,
+				2080E2791A83D69400ED0780 /* ground.green.7.png in Resources */,
+				2080E27B1A83D69400ED0780 /* ground.green.9.png in Resources */,
+				2080E2781A83D69400ED0780 /* ground.green.6.png in Resources */,
 				2028EDAC1A824F4700894577 /* Images.xcassets in Resources */,
+				2080E2761A83D69400ED0780 /* ground.green.4.png in Resources */,
 				2028EDA31A824F4700894577 /* GameScene.sks in Resources */,
 				2028EDAA1A824F4700894577 /* Main.storyboard in Resources */,
 			);
@@ -413,6 +493,7 @@
 				2028EDC01A824F4700894577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2028EDC11A824F4700894577 /* Build configuration list for PBXNativeTarget "OpenWorldQuarterViewRPGTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +502,7 @@
 				2028EDC31A824F4700894577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
