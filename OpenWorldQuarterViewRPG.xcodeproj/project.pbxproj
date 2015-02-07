@@ -34,6 +34,10 @@
 		208C7A181A85F25A0086DB72 /* ground.rectcheck.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 208C7A141A85F25A0086DB72 /* ground.rectcheck.1.png */; };
 		208C7A191A85F25A0086DB72 /* ground.rectcheck.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 208C7A151A85F25A0086DB72 /* ground.rectcheck.2.png */; };
 		208C7A1A1A85F25A0086DB72 /* ground.rectcheck.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 208C7A161A85F25A0086DB72 /* ground.rectcheck.3.png */; };
+		208C7A1E1A8617ED0086DB72 /* MapChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A1D1A8617ED0086DB72 /* MapChip.swift */; };
+		208C7A201A8618AD0086DB72 /* GroundGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A1F1A8618AD0086DB72 /* GroundGreen.swift */; };
+		208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A211A8618FF0086DB72 /* RectTestChip.swift */; };
+		208C7A251A86198B0086DB72 /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A241A86198B0086DB72 /* MapUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 		208C7A141A85F25A0086DB72 /* ground.rectcheck.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.rectcheck.1.png; sourceTree = "<group>"; };
 		208C7A151A85F25A0086DB72 /* ground.rectcheck.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.rectcheck.2.png; sourceTree = "<group>"; };
 		208C7A161A85F25A0086DB72 /* ground.rectcheck.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.rectcheck.3.png; sourceTree = "<group>"; };
+		208C7A1D1A8617ED0086DB72 /* MapChip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapChip.swift; sourceTree = "<group>"; };
+		208C7A1F1A8618AD0086DB72 /* GroundGreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroundGreen.swift; sourceTree = "<group>"; };
+		208C7A211A8618FF0086DB72 /* RectTestChip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectTestChip.swift; sourceTree = "<group>"; };
+		208C7A241A86198B0086DB72 /* MapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +173,8 @@
 		2028ED9D1A824F4700894577 /* OpenWorldQuarterViewRPG */ = {
 			isa = PBXGroup;
 			children = (
+				208C7A231A86197A0086DB72 /* util */,
+				208C7A1B1A860A790086DB72 /* view */,
 				202147FE1A839F2100070FA1 /* image */,
 				2028EDC41A826A4B00894577 /* ball.png */,
 				2028EDA01A824F4700894577 /* AppDelegate.swift */,
@@ -213,6 +223,32 @@
 				208C7A161A85F25A0086DB72 /* ground.rectcheck.3.png */,
 			);
 			name = rectCheck;
+			sourceTree = "<group>";
+		};
+		208C7A1B1A860A790086DB72 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				208C7A1C1A86179F0086DB72 /* map */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		208C7A1C1A86179F0086DB72 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				208C7A1D1A8617ED0086DB72 /* MapChip.swift */,
+				208C7A1F1A8618AD0086DB72 /* GroundGreen.swift */,
+				208C7A211A8618FF0086DB72 /* RectTestChip.swift */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		208C7A231A86197A0086DB72 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				208C7A241A86198B0086DB72 /* MapUtil.swift */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +372,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2028EDA51A824F4700894577 /* GameScene.swift in Sources */,
+				208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */,
+				208C7A201A8618AD0086DB72 /* GroundGreen.swift in Sources */,
 				2028EDA71A824F4700894577 /* GameViewController.swift in Sources */,
+				208C7A251A86198B0086DB72 /* MapUtil.swift in Sources */,
+				208C7A1E1A8617ED0086DB72 /* MapChip.swift in Sources */,
 				2028EDA11A824F4700894577 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

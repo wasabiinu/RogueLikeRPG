@@ -1,0 +1,58 @@
+//
+//  MapUtil.swift
+//  OpenWorldQuarterViewRPG
+//
+//  Created by 横山 優 on 2015/02/07.
+//  Copyright (c) 2015年 Yu Yokoyama. All rights reserved.
+//
+
+import SpriteKit
+
+class MapUtil {
+    class func createRectArea(let world:SKNode, let rect:CGRect, let type:Int)
+    {
+        var dx:Int = Int(rect.origin.x)
+        var dy:Int = Int(rect.origin.y)
+        var width:Int = Int(rect.size.width)
+        var height:Int = Int(rect.size.height)
+        for (var y = dy; y < dy + height; y++)
+        {
+            for (var x = dx; x < dx + width; x++)
+            {
+                var groundChip:MapChip = RectTestChip(num:type)
+                groundChip.position(x, gridY: y, z: 0)
+                world.addChild(groundChip.node)
+            }
+        }
+    }
+    
+    /**
+    * レクタングルを縦横どちらかランダムに2分割して返す
+    */
+    class func splitRect(let OriginalRect:CGRect) -> (CGRect, CGRect)
+    {
+        var direction:Int = Int(arc4random_uniform(2))
+        var rect1:CGRect
+        var rect2:CGRect
+        
+        
+        //横分割
+        if (direction == 1)
+        {
+            var seedWidth:UInt32 = UInt32(OriginalRect.size.width) - 1
+            var splitWidth:CGFloat = CGFloat(arc4random_uniform(seedWidth))
+            rect1 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y, splitWidth, OriginalRect.size.height)
+            rect2 = CGRectMake(OriginalRect.origin.x + splitWidth, OriginalRect.origin.y, OriginalRect.size.width - rect1.size.width, OriginalRect.size.height)
+        }
+            //縦分割
+        else
+        {
+            var seedHeight:UInt32 = UInt32(OriginalRect.size.height) - 1
+            var splitHeight:CGFloat = CGFloat(arc4random_uniform(seedHeight))
+            rect1 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y, OriginalRect.size.width, splitHeight)
+            rect2 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y + splitHeight, OriginalRect.size.width, OriginalRect.size.height - rect1.size.height)
+        }
+        
+        return (rect1, rect2)
+    }
+}
