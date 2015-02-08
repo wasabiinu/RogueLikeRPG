@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     var startPos:CGPoint!;
+    var pinchRect:CGRect!;
     var myWorld:SKNode = SKNode()
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -42,6 +43,7 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
+        println("finger: \(touches.count)")
         for touch: AnyObject in touches {
             
             let location = touch.locationInNode(self)
@@ -53,6 +55,12 @@ class GameScene: SKScene {
                 }
             }
         }
+        
+        //ピンチインアウトでズームインアウト
+        if (touches.count == 2)
+        {
+            pinchRect = UIUtil.createPinchRect(touches, node:self)
+        }
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
@@ -60,13 +68,32 @@ class GameScene: SKScene {
         var touchPos:CGPoint = touch.locationInNode(self)
         
         //マップビューのドラッグ移動
-        myWorld.position.x -= startPos.x - touchPos.x
-        myWorld.position.y -= startPos.y - touchPos.y
-        startPos.x -= startPos.x - touchPos.x
-        startPos.y -= startPos.y - touchPos.y
+        if (touches.count == 1 || touches.count == 3)
+        {
+            myWorld.position.x -= startPos.x - touchPos.x
+            myWorld.position.y -= startPos.y - touchPos.y
+            startPos.x -= startPos.x - touchPos.x
+            startPos.y -= startPos.y - touchPos.y
+        }
     }
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-       
+       var endRect = UIUtil.createPinchRect(touches, node:self)
+        if (touches.count == 2)
+        {
+            if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height)
+            {
+                println("pinchOut")
+                myWorld.xScale /= 2
+                myWorld.yScale /= 2
+            }
+            else
+            {
+                println("pinchIn")
+                myWorld.xScale *= 2
+                myWorld.yScale *= 2
+            }
+        }
+        
     }
    
     override func update(currentTime: CFTimeInterval) {

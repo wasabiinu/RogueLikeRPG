@@ -46,6 +46,7 @@
 		208C7A321A8765C30086DB72 /* ChipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A311A8765C30086DB72 /* ChipInfo.swift */; };
 		208C7A361A8766850086DB72 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A351A8766850086DB72 /* MapModel.swift */; };
 		208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A381A876F7D0086DB72 /* MapDelegate.swift */; };
+		208C7A3B1A87B1FB0086DB72 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		208C7A311A8765C30086DB72 /* ChipInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipInfo.swift; sourceTree = "<group>"; };
 		208C7A351A8766850086DB72 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		208C7A381A876F7D0086DB72 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
+		208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				208C7A241A86198B0086DB72 /* MapUtil.swift */,
+				208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				208C7A201A8618AD0086DB72 /* GroundGreen.swift in Sources */,
 				2028EDA71A824F4700894577 /* GameViewController.swift in Sources */,
 				208C7A251A86198B0086DB72 /* MapUtil.swift in Sources */,
+				208C7A3B1A87B1FB0086DB72 /* UIUtil.swift in Sources */,
 				208C7A1E1A8617ED0086DB72 /* MapChip.swift in Sources */,
 				2028EDA11A824F4700894577 /* AppDelegate.swift in Sources */,
 			);
