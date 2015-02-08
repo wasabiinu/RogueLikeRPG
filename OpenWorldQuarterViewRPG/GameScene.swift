@@ -36,7 +36,6 @@ class GameScene: SKScene {
             width = Int(rect2.size.width)
             height = Int(rect2.size.height)
             rect1 = rect2
-            println(i)
         }
         MapUtil.createRectArea(myWorld, rect: rect2, type: i)
         

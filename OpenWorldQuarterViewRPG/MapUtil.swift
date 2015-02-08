@@ -59,9 +59,6 @@ class MapUtil {
             rect2 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y + splitHeight, OriginalRect.size.width, OriginalRect.size.height - rect1.size.height)
         }
         
-        println("rect1:x\(rect1.origin.x), y:\(rect1.origin.y), width:\(rect1.size.width), height\(rect1.size.height)")
-        println("rect2:x\(rect2.origin.x), y:\(rect2.origin.y), width:\(rect2.size.width), height\(rect2.size.height)")
-        
         return (rect1, rect2)
     }
 }
