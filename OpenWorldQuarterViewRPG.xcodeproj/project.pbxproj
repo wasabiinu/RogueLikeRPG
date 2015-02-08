@@ -43,6 +43,9 @@
 		208C7A2D1A864F5D0086DB72 /* ground.rectcheck.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 208C7A281A864F5D0086DB72 /* ground.rectcheck.6.png */; };
 		208C7A2E1A864F5D0086DB72 /* ground.rectcheck.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 208C7A291A864F5D0086DB72 /* ground.rectcheck.7.png */; };
 		208C7A2F1A864F5D0086DB72 /* ground.rectcheck.8.png in Resources */ = {isa = PBXBuildFile; fileRef = 208C7A2A1A864F5D0086DB72 /* ground.rectcheck.8.png */; };
+		208C7A321A8765C30086DB72 /* ChipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A311A8765C30086DB72 /* ChipInfo.swift */; };
+		208C7A361A8766850086DB72 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A351A8766850086DB72 /* MapModel.swift */; };
+		208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A381A876F7D0086DB72 /* MapDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,9 @@
 		208C7A281A864F5D0086DB72 /* ground.rectcheck.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.rectcheck.6.png; sourceTree = "<group>"; };
 		208C7A291A864F5D0086DB72 /* ground.rectcheck.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.rectcheck.7.png; sourceTree = "<group>"; };
 		208C7A2A1A864F5D0086DB72 /* ground.rectcheck.8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.rectcheck.8.png; sourceTree = "<group>"; };
+		208C7A311A8765C30086DB72 /* ChipInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChipInfo.swift; sourceTree = "<group>"; };
+		208C7A351A8766850086DB72 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		208C7A381A876F7D0086DB72 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,9 @@
 		2028ED9D1A824F4700894577 /* OpenWorldQuarterViewRPG */ = {
 			isa = PBXGroup;
 			children = (
+				208C7A371A876F230086DB72 /* delegate */,
+				208C7A331A87666B0086DB72 /* model */,
+				208C7A301A8765B10086DB72 /* data */,
 				208C7A231A86197A0086DB72 /* util */,
 				208C7A1B1A860A790086DB72 /* view */,
 				202147FE1A839F2100070FA1 /* image */,
@@ -264,6 +273,38 @@
 				208C7A241A86198B0086DB72 /* MapUtil.swift */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		208C7A301A8765B10086DB72 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				208C7A311A8765C30086DB72 /* ChipInfo.swift */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		208C7A331A87666B0086DB72 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				208C7A341A8766740086DB72 /* map */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		208C7A341A8766740086DB72 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				208C7A351A8766850086DB72 /* MapModel.swift */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		208C7A371A876F230086DB72 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				208C7A381A876F7D0086DB72 /* MapDelegate.swift */,
+			);
+			name = delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +433,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2028EDA51A824F4700894577 /* GameScene.swift in Sources */,
+				208C7A361A8766850086DB72 /* MapModel.swift in Sources */,
+				208C7A321A8765C30086DB72 /* ChipInfo.swift in Sources */,
+				208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */,
 				208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */,
 				208C7A201A8618AD0086DB72 /* GroundGreen.swift in Sources */,
 				2028EDA71A824F4700894577 /* GameViewController.swift in Sources */,

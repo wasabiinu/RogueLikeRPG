@@ -24,20 +24,7 @@ class GameScene: SKScene {
         camera.name = "camera"
         myWorld.addChild(camera)
         
-        var OriginalRect:CGRect = CGRectMake(0, 0, 20, 20)
-        
-        var rect1:CGRect = CGRectMake(0, 0, 20, 20)
-        var rect2:CGRect = CGRectMake(0, 0, 20, 20)
-        var i:Int = 0;
-        for (var width:Int = Int(rect1.size.width), height:Int = Int(rect1.size.height); width > 2 && height > 2 && i < 8; i++)
-        {
-            (rect1, rect2) = MapUtil.splitRect(rect1)
-            MapUtil.createRectArea(myWorld, rect: rect1, type: i)
-            width = Int(rect2.size.width)
-            height = Int(rect2.size.height)
-            rect1 = rect2
-        }
-        MapUtil.createRectArea(myWorld, rect: rect2, type: i)
+        MapModel(node: myWorld)
         
         self.addChild(myWorld)
     }
