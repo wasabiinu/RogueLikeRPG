@@ -21,9 +21,13 @@ class MapModel {
     
     func afterInit()
     {
+        //デリゲートを作る
         delegate = MapDelegate(model: self)
+        //ユーティリティにデリゲートを渡す
         MapUtil.setDelegate(delegate)
+        //マップを2分割法で作成する
         MapUtil.repeatSplitRectangle()
+        //描画する
         MapUtil.draw()
     }
 }

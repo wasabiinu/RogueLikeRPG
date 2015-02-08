@@ -54,7 +54,6 @@ class MapUtil {
         var groundChip:MapChip = RectTestChip(num:info.type)
         groundChip.position(gridX, gridY: gridY, z: z)
         self.delegate.getModelNode().addChild(groundChip.node)
-        println("\(gridX),\(gridY)")
     }
     
     //レクタングルを縦横どちらかランダムに2分割して返します
@@ -94,9 +93,9 @@ class MapUtil {
     //分割を繰り返す
     class func repeatSplitRectangle()
     {
-        var OriginalRect:CGRect = CGRectMake(0, 0, 20, 20)
-        var rect1:CGRect = CGRectMake(0, 0, 20, 20)
-        var rect2:CGRect = CGRectMake(0, 0, 20, 20)
+        var OriginalRect:CGRect = CGRectMake(0, 0, 100, 100)
+        var rect1:CGRect = CGRectMake(0, 0, 100, 100)
+        var rect2:CGRect = CGRectMake(0, 0, 100, 100)
         var i:Int = 0;
         var minWidth:Int = 2;
         var minHeight:Int = 2;
