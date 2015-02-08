@@ -83,14 +83,14 @@ class GameScene: SKScene {
             if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height)
             {
                 println("pinchOut")
-                myWorld.xScale /= 2
-                myWorld.yScale /= 2
+                myWorld.xScale *= 2
+                myWorld.yScale *= 2
             }
             else
             {
                 println("pinchIn")
-                myWorld.xScale *= 2
-                myWorld.yScale *= 2
+                myWorld.xScale /= 2
+                myWorld.yScale /= 2
             }
         }
         
