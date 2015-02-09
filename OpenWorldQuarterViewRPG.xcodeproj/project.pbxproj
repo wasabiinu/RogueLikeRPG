@@ -127,7 +127,7 @@
 			children = (
 				202148011A83B5A000070FA1 /* map */,
 			);
-			name = image;
+			path = image;
 			sourceTree = "<group>";
 		};
 		202148011A83B5A000070FA1 /* map */ = {
@@ -136,7 +136,7 @@
 				202147FF1A839F4300070FA1 /* mapchip.png */,
 				202148021A83B5AE00070FA1 /* ground */,
 			);
-			name = map;
+			path = map;
 			sourceTree = "<group>";
 		};
 		202148021A83B5AE00070FA1 /* ground */ = {
@@ -145,7 +145,7 @@
 				208C7A121A85F2060086DB72 /* rectCheck */,
 				202148031A83B5B900070FA1 /* green */,
 			);
-			name = ground;
+			path = ground;
 			sourceTree = "<group>";
 		};
 		202148031A83B5B900070FA1 /* green */ = {
@@ -165,7 +165,7 @@
 				2080E26B1A83D68900ED0780 /* ground.green.2.png */,
 				2080E2681A83D67F00ED0780 /* ground.green.0.png */,
 			);
-			name = green;
+			path = green;
 			sourceTree = "<group>";
 		};
 		2028ED921A824F4700894577 = {
@@ -245,7 +245,7 @@
 				208C7A151A85F25A0086DB72 /* ground.rectcheck.2.png */,
 				208C7A161A85F25A0086DB72 /* ground.rectcheck.3.png */,
 			);
-			name = rectCheck;
+			path = rectCheck;
 			sourceTree = "<group>";
 		};
 		208C7A1B1A860A790086DB72 /* view */ = {
