@@ -253,7 +253,7 @@
 			children = (
 				208C7A1C1A86179F0086DB72 /* map */,
 			);
-			name = view;
+			path = view;
 			sourceTree = "<group>";
 		};
 		208C7A1C1A86179F0086DB72 /* map */ = {
@@ -263,7 +263,7 @@
 				208C7A1F1A8618AD0086DB72 /* GroundGreen.swift */,
 				208C7A211A8618FF0086DB72 /* RectTestChip.swift */,
 			);
-			name = map;
+			path = map;
 			sourceTree = "<group>";
 		};
 		208C7A231A86197A0086DB72 /* util */ = {
@@ -272,7 +272,7 @@
 				208C7A241A86198B0086DB72 /* MapUtil.swift */,
 				208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */,
 			);
-			name = util;
+			path = util;
 			sourceTree = "<group>";
 		};
 		208C7A301A8765B10086DB72 /* data */ = {
@@ -280,7 +280,7 @@
 			children = (
 				208C7A311A8765C30086DB72 /* ChipInfo.swift */,
 			);
-			name = data;
+			path = data;
 			sourceTree = "<group>";
 		};
 		208C7A331A87666B0086DB72 /* model */ = {
@@ -288,7 +288,7 @@
 			children = (
 				208C7A341A8766740086DB72 /* map */,
 			);
-			name = model;
+			path = model;
 			sourceTree = "<group>";
 		};
 		208C7A341A8766740086DB72 /* map */ = {
@@ -296,7 +296,7 @@
 			children = (
 				208C7A351A8766850086DB72 /* MapModel.swift */,
 			);
-			name = map;
+			path = map;
 			sourceTree = "<group>";
 		};
 		208C7A371A876F230086DB72 /* delegate */ = {
@@ -304,7 +304,7 @@
 			children = (
 				208C7A381A876F7D0086DB72 /* MapDelegate.swift */,
 			);
-			name = delegate;
+			path = delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
