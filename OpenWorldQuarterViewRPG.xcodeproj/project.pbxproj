@@ -16,7 +16,6 @@
 		2028EDAC1A824F4700894577 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDAB1A824F4700894577 /* Images.xcassets */; };
 		2028EDAF1A824F4700894577 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDAD1A824F4700894577 /* LaunchScreen.xib */; };
 		2028EDBB1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDBA1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift */; };
-		2028EDC51A826A4B00894577 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDC41A826A4B00894577 /* ball.png */; };
 		2080E2691A83D67F00ED0780 /* ground.green.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2681A83D67F00ED0780 /* ground.green.0.png */; };
 		2080E26C1A83D68900ED0780 /* ground.green.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26A1A83D68900ED0780 /* ground.green.1.png */; };
 		2080E26D1A83D68900ED0780 /* ground.green.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26B1A83D68900ED0780 /* ground.green.2.png */; };
@@ -73,7 +72,6 @@
 		2028EDB41A824F4700894577 /* OpenWorldQuarterViewRPGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenWorldQuarterViewRPGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028EDB91A824F4700894577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2028EDBA1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWorldQuarterViewRPGTests.swift; sourceTree = "<group>"; };
-		2028EDC41A826A4B00894577 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		2080E2681A83D67F00ED0780 /* ground.green.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.0.png; sourceTree = "<group>"; };
 		2080E26A1A83D68900ED0780 /* ground.green.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.1.png; sourceTree = "<group>"; };
 		2080E26B1A83D68900ED0780 /* ground.green.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.2.png; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				208C7A231A86197A0086DB72 /* util */,
 				208C7A1B1A860A790086DB72 /* view */,
 				202147FE1A839F2100070FA1 /* image */,
-				2028EDC41A826A4B00894577 /* ball.png */,
 				2028EDA01A824F4700894577 /* AppDelegate.swift */,
 				2028EDA21A824F4700894577 /* GameScene.sks */,
 				2028EDA41A824F4700894577 /* GameScene.swift */,
@@ -404,7 +401,6 @@
 				208C7A171A85F25A0086DB72 /* ground.rectcheck.0.png in Resources */,
 				208C7A2E1A864F5D0086DB72 /* ground.rectcheck.7.png in Resources */,
 				2080E26C1A83D68900ED0780 /* ground.green.1.png in Resources */,
-				2028EDC51A826A4B00894577 /* ball.png in Resources */,
 				208C7A0D1A85F0F10086DB72 /* ground.green.10.png in Resources */,
 				202148001A839F4400070FA1 /* mapchip.png in Resources */,
 				2080E2791A83D69400ED0780 /* ground.green.7.png in Resources */,
