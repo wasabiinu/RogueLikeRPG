@@ -11,6 +11,10 @@ import SpriteKit
 class UIUtil {
     class func createPinchRect(touches:NSSet, node:SKNode) -> CGRect
     {
+        println("createPinchRect")
+        println(touches)
+        println(touches.count)
+        println(node)
         if (touches.count == 2)
         {
             var touchArray:Array<UITouch> = Array<UITouch>()
@@ -36,11 +40,11 @@ class UIUtil {
                 {
                     height *= -1
                 }
-                
+                println("createPinchRect ended")
                 return CGRectMake(0, 0, width, height)
             }
         }
-        
+        println("createPinchRect ended")
         return CGRectMake(0, 0, 0, 0)
     }
 }

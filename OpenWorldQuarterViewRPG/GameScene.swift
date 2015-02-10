@@ -77,9 +77,10 @@ class GameScene: SKScene {
         }
     }
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-       var endRect = UIUtil.createPinchRect(touches, node:self)
-        if (touches.count == 2)
+       
+        if (touches.count == 2 && pinchRect != nil)
         {
+            var endRect = UIUtil.createPinchRect(touches, node:self)
             if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height)
             {
                 println("pinchOut")
