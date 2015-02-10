@@ -56,16 +56,17 @@ class GameScene: SKScene {
             }
         }
         
-        //ピンチインアウトでズームインアウト
-        if (touches.count == 2)
-        {
-            pinchRect = UIUtil.createPinchRect(touches, node:self)
-        }
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         var touch:UITouch = touches.anyObject() as UITouch
         var touchPos:CGPoint = touch.locationInNode(self)
+        
+        //ピンチインアウトでズームインアウト
+        if (touches.count == 2 && pinchRect == nil)
+        {
+            pinchRect = UIUtil.createPinchRect(touches, node:self)
+        }
         
         //マップビューのドラッグ移動
         if (touches.count == 1 || touches.count == 3)
@@ -81,13 +82,13 @@ class GameScene: SKScene {
         if (touches.count == 2 && pinchRect != nil)
         {
             var endRect = UIUtil.createPinchRect(touches, node:self)
-            if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height)
+            if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height * 1.5)
             {
                 println("pinchOut")
                 myWorld.xScale *= 2
                 myWorld.yScale *= 2
             }
-            else
+            else if (pinchRect.size.width * pinchRect.size.height > endRect.size.width * endRect.size.height * 1.5)
             {
                 println("pinchIn")
                 myWorld.xScale /= 2
