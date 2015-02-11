@@ -19,8 +19,8 @@ class GameScene: SKScene {
         self.backgroundColor = UIColor(red:0.15, green:0.15, blue:0.3, alpha:1.0)
         self.anchorPoint = CGPointMake(0.5, 1)
         myWorld.name = "world"
-        myWorld.xScale = 2
-        myWorld.yScale = 2
+        myWorld.xScale = 0.5
+        myWorld.yScale = 0.5
         
         
         var camera:SKNode = SKNode()
@@ -43,7 +43,7 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
-        println("finger: \(touches.count)")
+        
         for touch: AnyObject in touches {
             
             let location = touch.locationInNode(self)
@@ -62,39 +62,46 @@ class GameScene: SKScene {
         var touch:UITouch = touches.anyObject() as UITouch
         var touchPos:CGPoint = touch.locationInNode(self)
         
+        println("finger: \(touches.count)")
+        
         //ピンチインアウトでズームインアウト
-        if (touches.count == 2 && pinchRect == nil)
+        if (touches.count == 2)
         {
+            if (pinchRect != nil)
+            {
+                var endRect = UIUtil.createPinchRect(touches, node:self)
+                if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height)
+                {
+                    println("pinchOut")
+                    myWorld.xScale *= 1.02
+                    myWorld.yScale *= 1.02
+                }
+                else if (pinchRect.size.width * pinchRect.size.height > endRect.size.width * endRect.size.height)
+                {
+                    println("pinchIn")
+                    myWorld.xScale /= 1.02
+                    myWorld.yScale /= 1.02
+                }
+                centerOnNode(myWorld)
+            }
             pinchRect = UIUtil.createPinchRect(touches, node:self)
         }
         
         //マップビューのドラッグ移動
         if (touches.count == 1 || touches.count == 3)
         {
-            myWorld.position.x -= startPos.x - touchPos.x
-            myWorld.position.y -= startPos.y - touchPos.y
-            startPos.x -= startPos.x - touchPos.x
-            startPos.y -= startPos.y - touchPos.y
+            if (startPos.x - touchPos.x < 50 && startPos.x - touchPos.x > -50 && startPos.y - touchPos.y < 50 && startPos.y - touchPos.y > -50)
+            {
+                myWorld.position.x -= startPos.x - touchPos.x
+                myWorld.position.y -= startPos.y - touchPos.y
+                startPos.x -= startPos.x - touchPos.x
+                startPos.y -= startPos.y - touchPos.y
+            }
         }
     }
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
        
-        if (touches.count == 2 && pinchRect != nil)
-        {
-            var endRect = UIUtil.createPinchRect(touches, node:self)
-            if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height * 1.5)
-            {
-                println("pinchOut")
-                myWorld.xScale *= 2
-                myWorld.yScale *= 2
-            }
-            else if (pinchRect.size.width * pinchRect.size.height > endRect.size.width * endRect.size.height * 1.5)
-            {
-                println("pinchIn")
-                myWorld.xScale /= 2
-                myWorld.yScale /= 2
-            }
-        }
+        
         
     }
    

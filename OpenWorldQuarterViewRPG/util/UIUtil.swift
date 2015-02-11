@@ -11,7 +11,7 @@ import SpriteKit
 class UIUtil {
     class func createPinchRect(touches:NSSet, node:SKNode) -> CGRect
     {
-        println("createPinchRect")
+        //println("createPinchRect")
         println(touches)
         println(touches.count)
         println(node)
@@ -40,11 +40,11 @@ class UIUtil {
                 {
                     height *= -1
                 }
-                println("createPinchRect ended")
+                //println("createPinchRect ended")
                 return CGRectMake(0, 0, width, height)
             }
         }
-        println("createPinchRect ended")
+        //println("createPinchRect ended null")
         return CGRectMake(0, 0, 0, 0)
     }
 }
