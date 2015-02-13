@@ -112,7 +112,7 @@ class UIUtil {
         //ピンチインアウトでズームインアウト
         if (touches.count == 2)
         {
-            if (pinchRect == CGRectMake(0, 0, 0, 0))
+            if (pinchRect != CGRectMake(0, 0, 0, 0))
             {
                 var endRect = createPinchRect(touches, node:delegate.getModelScene())
                 if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height)
