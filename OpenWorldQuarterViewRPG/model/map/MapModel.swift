@@ -19,6 +19,11 @@ class MapModel {
         afterInit()
     }
     
+    deinit {
+        delegate  = nil
+        chipInfoDicionary = Dictionary<String, ChipInfo>()
+    }
+    
     func afterInit()
     {
         //デリゲートを作る

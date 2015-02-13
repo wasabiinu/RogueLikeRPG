@@ -21,6 +21,10 @@ class UIModel {
         afterInit()
     }
     
+    deinit {
+        delegate = nil
+    }
+    
     func afterInit()
     {
         //デリゲートを作る

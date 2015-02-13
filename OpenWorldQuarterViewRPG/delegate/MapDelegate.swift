@@ -16,6 +16,10 @@ class MapDelegate {
         self.model = model
     }
     
+    deinit {
+        
+    }
+    
     func getModelNode() -> SKNode
     {
         return self.model.node

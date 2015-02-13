@@ -18,6 +18,10 @@ class UIDelegate {
         self.scene = scene
     }
     
+    deinit {
+        
+    }
+    
     func getModelNode() -> SKNode
     {
         return self.model.node

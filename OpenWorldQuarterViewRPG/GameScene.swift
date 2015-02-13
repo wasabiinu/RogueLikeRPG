@@ -33,6 +33,12 @@ class GameScene: SKScene {
         self.addChild(myWorld)
     }
     
+    deinit {
+        mapModel = nil
+        uiModel = nil
+        myWorld = SKNode()
+    }
+    
     
     func centerOnNode(node:SKNode) {
         if let scene:SKScene = node.scene

@@ -12,11 +12,16 @@ import SpriteKit
 
 class MapChip {
     var node:SKSpriteNode;
-    let startX:Int = 0;
-    let startY:Int = 0;
+    var startX:Int = 0;
+    var startY:Int = 0;
     init(let imageName:String) {
         var texture:SKTexture = SKTexture(imageNamed: imageName)
         node = SKSpriteNode(texture: texture)
+    }
+    
+    deinit {
+        startX = 0
+        startY = 0
     }
     
     //チップノードの位置を代入します
