@@ -96,6 +96,7 @@ class MapUtil {
         var OriginalRect:CGRect = CGRectMake(0, 0, 100, 100)
         var rect1:CGRect = CGRectMake(0, 0, 100, 100)
         var rect2:CGRect = CGRectMake(0, 0, 100, 100)
+        var rectArray:[CGRect] = [CGRect]()
         var i:Int = 0;
         var minWidth:Int = 2;
         var minHeight:Int = 2;
@@ -105,7 +106,10 @@ class MapUtil {
             
             
             //rect1をDictionaryに登録する
-            registChipInfo(rect1, type: i)
+            //一旦、壁を格納する　type = 1
+            registChipInfo(rect1, type: 1)
+            
+            rectArray.append(rect1)
             
             width = Int(rect2.size.width)
             height = Int(rect2.size.height)
@@ -113,10 +117,44 @@ class MapUtil {
             
             rect1 = rect2
         }
-        registChipInfo(rect1, type: i)
+        //はみ出したぶんを登録
+        registChipInfo(rect1, type: 1)
+        rectArray.append(rect1)
+        
+        //部屋を作る
+        createRooms(rectArray)
+        
+        //通路を作る
+        
+        //ランダムに回転させる
         let xRotationNum:UInt32 = arc4random_uniform(2)
         let yRotationNum:UInt32 = arc4random_uniform(2)
         rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
+    }
+    
+    //部屋を作って登録する
+    private class func createRooms(let array:[CGRect])
+    {
+        var roomArray:[CGRect] = [CGRect]()
+        for rect:CGRect in array
+        {
+            //格納されるエリアの1/4〜3/4の大きさのレクタングルを作る
+            var roomX:CGFloat, roomY:CGFloat, roomWidth:CGFloat ,roomHeight:CGFloat
+            
+            roomX = CGFloat(arc4random_uniform(UInt32(rect.width / 4))) + 1
+            roomY = CGFloat(arc4random_uniform(UInt32(rect.height / 4))) + 1
+            roomWidth = rect.width - CGFloat(arc4random_uniform(UInt32(rect.width) / 4)) - roomX - 1
+            roomHeight = rect.height - CGFloat(arc4random_uniform(UInt32(rect.height) / 4)) - roomY - 1
+            roomX += rect.origin.x
+            roomY += rect.origin.y
+            roomArray.append(CGRectMake(roomX, roomY, roomWidth, roomHeight))
+        }
+        
+        //作ったレクタングルを登録する
+        for rect2:CGRect in roomArray
+        {
+            registChipInfo(rect2, type: 0)
+        }
     }
     
     //レクタングルをDictionaryに登録する
@@ -188,8 +226,8 @@ class MapUtil {
     {
         var dictionary:Dictionary<String, ChipInfo> = self.delegate.getModelChipDictionary()
         println("MapUtil::draw")
-        var gridX:Int = 0;
-        var gridY:Int = 0;
+        var gridX:Int = 0
+        var gridY:Int = 0
         while((dictionary["\(gridX),\(gridY)"]) != nil)
         {
             while(dictionary["\(gridX),\(gridY)"] != nil)
