@@ -16,6 +16,7 @@
 		2028EDAC1A824F4700894577 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDAB1A824F4700894577 /* Images.xcassets */; };
 		2028EDAF1A824F4700894577 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2028EDAD1A824F4700894577 /* LaunchScreen.xib */; };
 		2028EDBB1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDBA1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift */; };
+		206430D51A90FF2500A52BBC /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206430D41A90FF2500A52BBC /* Random.swift */; };
 		2080E2691A83D67F00ED0780 /* ground.green.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E2681A83D67F00ED0780 /* ground.green.0.png */; };
 		2080E26C1A83D68900ED0780 /* ground.green.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26A1A83D68900ED0780 /* ground.green.1.png */; };
 		2080E26D1A83D68900ED0780 /* ground.green.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2080E26B1A83D68900ED0780 /* ground.green.2.png */; };
@@ -74,6 +75,7 @@
 		2028EDB41A824F4700894577 /* OpenWorldQuarterViewRPGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenWorldQuarterViewRPGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028EDB91A824F4700894577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2028EDBA1A824F4700894577 /* OpenWorldQuarterViewRPGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWorldQuarterViewRPGTests.swift; sourceTree = "<group>"; };
+		206430D41A90FF2500A52BBC /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		2080E2681A83D67F00ED0780 /* ground.green.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.0.png; sourceTree = "<group>"; };
 		2080E26A1A83D68900ED0780 /* ground.green.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.1.png; sourceTree = "<group>"; };
 		2080E26B1A83D68900ED0780 /* ground.green.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.green.2.png; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				208C7A241A86198B0086DB72 /* MapUtil.swift */,
 				208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */,
+				206430D41A90FF2500A52BBC /* Random.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				208C7A321A8765C30086DB72 /* ChipInfo.swift in Sources */,
 				C3E1660A1A8C57A200B9CAAC /* UIModel.swift in Sources */,
 				208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */,
+				206430D51A90FF2500A52BBC /* Random.swift in Sources */,
 				208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */,
 				208C7A201A8618AD0086DB72 /* GroundGreen.swift in Sources */,
 				2028EDA71A824F4700894577 /* GameViewController.swift in Sources */,
