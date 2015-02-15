@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Yu Yokoyama. All rights reserved.
 //
 
-struct ChipInfo {
+internal struct ChipInfo {
     internal var type:Int
     internal var movable:Bool
     init (let type:Int, let movable:Bool)

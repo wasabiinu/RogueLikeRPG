@@ -162,6 +162,19 @@ class MapUtil {
         }
     }
     
+    //通路を作って登録する
+    private class func createPasseges(roomArray:[CGFloat])
+    {
+        //格納させているレクタングルを順番に比較する
+        for (var rect1Index:Int = 0; roomArray.count < rect1Index; rect1Index++)
+        {
+            for (var rect2Index:Int = rect1Index + 1; roomArray.count < rect1Index; rect1Index++)
+            {
+                
+            }
+        }
+    }
+    
     //レクタングルをDictionaryに登録する
     private class func registChipInfo(let rect:CGRect, let type:Int, let moovable:Bool)
     {
