@@ -57,7 +57,7 @@ class MapUtil {
     }
     
     //レクタングルを縦横どちらかランダムに2分割して返します
-    internal class func twoSplitRect(let OriginalRect:CGRect) -> (CGRect, CGRect)
+    private class func twoSplitRect(let OriginalRect:CGRect) -> (CGRect, CGRect)
     {
         var direction:Int = Int(arc4random_uniform(2))
         var rect1:CGRect
@@ -114,10 +114,13 @@ class MapUtil {
             rect1 = rect2
         }
         registChipInfo(rect1, type: i)
+        let xRotationNum:UInt32 = arc4random_uniform(2)
+        let yRotationNum:UInt32 = arc4random_uniform(2)
+        rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
     }
     
     //レクタングルをDictionaryに登録する
-    internal class func registChipInfo(let rect:CGRect, let type:Int)
+    private class func registChipInfo(let rect:CGRect, let type:Int)
     {
         
         println("MapUtil::registChipInfo::x:\(rect.origin.x),y:\(rect.origin.y)")
@@ -129,6 +132,56 @@ class MapUtil {
             }
         }
         println("MapUtil::registChipInfo::end::\(self.delegate.getModelChipDictionary().count)")
+    }
+    
+    //作成したマップエリアを回転させる
+    private class func rotateRectangleArea(xRotation:Bool, yRotation:Bool)
+    {
+        println("MapUtil::rotateRectangleArea")
+        if (xRotation == false && yRotation == false)
+        {
+            return
+        }
+        
+        var x:Int = 0, y:Int = 0, xCount:Int = 0, yCount:Int = 0
+        let dictionary:Dictionary<String, ChipInfo> = self.delegate.getModelChipDictionary()
+        for (x = 0; dictionary["\(x),\(y)"] != nil; x++)
+        {
+            for (y = 0; dictionary["\(x),\(y)"] != nil; y++)
+            {
+                
+            }
+            yCount = y
+            y = 0
+        }
+        xCount = x
+        
+        x = 0
+        y = 0
+        for (x = 0; x < xCount; x++)
+        {
+            for (y = 0; y < yCount; y++)
+            {
+                //両回転
+                if (xRotation == true && yRotation == true)
+                {
+                    self.delegate.setModelChipDictionary("\(xCount - x - 1),\(yCount - y - 1)", info: dictionary["\(x),\(y)"]!)
+                }
+                //xだけ回転
+                else if(xRotation == true && yRotation == false)
+                {
+                    self.delegate.setModelChipDictionary("\(xCount - x - 1),\(y)", info: dictionary["\(x),\(y)"]!)
+                }
+                //yだけ回転
+                else if(xRotation == false && yRotation == true)
+                {
+                    self.delegate.setModelChipDictionary("\(x),\(yCount - y - 1)", info: dictionary["\(x),\(y)"]!)
+                }
+                
+            }
+            y = 0
+        }
+        
     }
     
     internal class func draw()

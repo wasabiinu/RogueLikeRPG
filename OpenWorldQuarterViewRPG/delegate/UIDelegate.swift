@@ -22,12 +22,12 @@ class UIDelegate {
         
     }
     
-    func getModelNode() -> SKNode
+    internal func getModelNode() -> SKNode
     {
         return self.model.node
     }
     
-    func getModelScene() -> SKScene
+    internal func getModelScene() -> SKScene
     {
         return self.model.scene
     }
