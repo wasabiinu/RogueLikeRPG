@@ -64,7 +64,7 @@ class MapUtil {
     //レクタングルを縦横どちらかランダムに2分割して返します
     private class func twoSplitRect(let OriginalRect:CGRect) -> (CGRect, CGRect)
     {
-        var direction:Int = Int(arc4random_uniform(2))
+        var direction:Int = Int(Random.random(2))
         var rect1:CGRect
         var rect2:CGRect
         
@@ -76,7 +76,7 @@ class MapUtil {
             var seedWidth:UInt32 = UInt32(OriginalRect.size.width  / 2)
             //横幅の1/4〜3/4にする
             //横幅の0〜1/2を作り、1/4を加える
-            var splitWidth:CGFloat = CGFloat(arc4random_uniform(seedWidth) + seedWidth / 2)
+            var splitWidth:CGFloat = CGFloat(Random.random(seedWidth) + seedWidth / 2)
             rect1 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y, splitWidth, OriginalRect.size.height)
             rect2 = CGRectMake(OriginalRect.origin.x + splitWidth, OriginalRect.origin.y, OriginalRect.size.width - rect1.size.width, OriginalRect.size.height)
         }
@@ -87,7 +87,7 @@ class MapUtil {
             var seedHeight:UInt32 = UInt32(OriginalRect.size.height / 2)
             //縦幅の1/4〜3/4にする
             //縦幅の0〜1/2を作り、1/4を加える
-            var splitHeight:CGFloat = CGFloat(arc4random_uniform(seedHeight) + seedHeight / 2)
+            var splitHeight:CGFloat = CGFloat(Random.random(seedHeight) + seedHeight / 2)
             rect1 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y, OriginalRect.size.width, splitHeight)
             rect2 = CGRectMake(OriginalRect.origin.x, OriginalRect.origin.y + splitHeight, OriginalRect.size.width, OriginalRect.size.height - rect1.size.height)
         }
@@ -132,8 +132,8 @@ class MapUtil {
         //通路を作る
         
         //ランダムに回転させる
-        let xRotationNum:UInt32 = arc4random_uniform(2)
-        let yRotationNum:UInt32 = arc4random_uniform(2)
+        let xRotationNum:UInt32 = Random.random(2)
+        let yRotationNum:UInt32 = Random.random(2)
         rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
     }
     
@@ -146,10 +146,10 @@ class MapUtil {
             //格納されるエリアの1/4〜3/4の大きさのレクタングルを作る
             var roomX:CGFloat, roomY:CGFloat, roomWidth:CGFloat ,roomHeight:CGFloat
             
-            roomX = CGFloat(arc4random_uniform(UInt32(rect.width / 4))) + 1
-            roomY = CGFloat(arc4random_uniform(UInt32(rect.height / 4))) + 1
-            roomWidth = rect.width - CGFloat(arc4random_uniform(UInt32(rect.width) / 4)) - roomX - 1
-            roomHeight = rect.height - CGFloat(arc4random_uniform(UInt32(rect.height) / 4)) - roomY - 1
+            roomX = CGFloat(Random.random(UInt32(rect.width / 4))) + 1
+            roomY = CGFloat(Random.random(UInt32(rect.height / 4))) + 1
+            roomWidth = rect.width - CGFloat(Random.random(UInt32(rect.width) / 4)) - roomX - 1
+            roomHeight = rect.height - CGFloat(Random.random(UInt32(rect.height) / 4)) - roomY - 1
             roomX += rect.origin.x
             roomY += rect.origin.y
             roomArray.append(CGRectMake(roomX, roomY, roomWidth, roomHeight))
