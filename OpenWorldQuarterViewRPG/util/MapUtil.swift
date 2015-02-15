@@ -49,10 +49,15 @@ class MapUtil {
         }
     }
     
-    internal class func addChip(gridX:Int, gridY:Int, z:Int, info:ChipInfo)
+    internal class func addChip(gridX:Int, gridY:Int, var z:Int, info:ChipInfo, zPosition:CGFloat)
     {
         var groundChip:MapChip = RectTestChip(num:info.type)
+        if (info.movable == false)
+        {
+            z -= 14;
+        }
         groundChip.position(gridX, gridY: gridY, z: z)
+        groundChip.node.zPosition = zPosition
         self.delegate.getModelNode().addChild(groundChip.node)
     }
     
@@ -107,7 +112,7 @@ class MapUtil {
             
             //rect1をDictionaryに登録する
             //一旦、壁を格納する　type = 1
-            registChipInfo(rect1, type: 1)
+            registChipInfo(rect1, type: 3, moovable: false)
             
             rectArray.append(rect1)
             
@@ -118,7 +123,7 @@ class MapUtil {
             rect1 = rect2
         }
         //はみ出したぶんを登録
-        registChipInfo(rect1, type: 1)
+        registChipInfo(rect1, type: 3, moovable: false)
         rectArray.append(rect1)
         
         //部屋を作る
@@ -150,15 +155,15 @@ class MapUtil {
             roomArray.append(CGRectMake(roomX, roomY, roomWidth, roomHeight))
         }
         
-        //作ったレクタングルを登録する/
+        //作ったレクタングルを登録する
         for rect2:CGRect in roomArray
         {
-            registChipInfo(rect2, type: 0)
+            registChipInfo(rect2, type: 0, moovable: true)
         }
     }
     
     //レクタングルをDictionaryに登録する
-    private class func registChipInfo(let rect:CGRect, let type:Int)
+    private class func registChipInfo(let rect:CGRect, let type:Int, let moovable:Bool)
     {
         
         println("MapUtil::registChipInfo::x:\(rect.origin.x),y:\(rect.origin.y)")
@@ -166,7 +171,7 @@ class MapUtil {
         {
             for (var registHeight:CGFloat = 0; registHeight < rect.size.height; registHeight++)
             {
-                self.delegate.setModelChipDictionary("\(Int(registWidth + rect.origin.x)),\(Int(registHeight + rect.origin.y))", info: ChipInfo(type: type, movable: false))
+                self.delegate.setModelChipDictionary("\(Int(registWidth + rect.origin.x)),\(Int(registHeight + rect.origin.y))", info: ChipInfo(type: type, movable: moovable))
             }
         }
         println("MapUtil::registChipInfo::end::\(self.delegate.getModelChipDictionary().count)")
@@ -228,15 +233,18 @@ class MapUtil {
         println("MapUtil::draw")
         var gridX:Int = 0
         var gridY:Int = 0
+        var zPosition:CGFloat = 0
         while((dictionary["\(gridX),\(gridY)"]) != nil)
         {
             while(dictionary["\(gridX),\(gridY)"] != nil)
             {
-                addChip(gridX, gridY: gridY, z: 0, info: dictionary["\(gridX),\(gridY)"]!)
-                gridY++
+                addChip(gridX, gridY: gridY, z: 0, info: dictionary["\(gridX),\(gridY)"]!, zPosition:zPosition)
+                zPosition++
+                gridX++
             }
-            gridY = 0;
-            gridX++
+            gridX = 0;
+            gridY++
         }
+        
     }
 }

@@ -27,6 +27,6 @@ class MapChip {
     //チップノードの位置を代入します
     //グリッドの値を受け取り、ドット的な値にします
     func position(let gridX:Int, let gridY:Int, let z:Int) {
-        node.position = CGPointMake(CGFloat(gridX * -16 + gridY * 16 - startX), CGFloat(gridX * -12 + gridY * -12 - z - startY))
+        node.position = CGPointMake(CGFloat(gridX * -16 + gridY * 16 - startX), CGFloat((gridX * -12) + (gridY * -12) - z - startY))
     }
 }
