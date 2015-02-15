@@ -8,9 +8,9 @@
 import SpriteKit
 
 class MapModel {
-    var delegate:MapDelegate!
-    var node:SKNode
-    var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
+    internal var delegate:MapDelegate!
+    internal var node:SKNode
+    internal var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
     
     init (node:SKNode)
     {
@@ -24,7 +24,7 @@ class MapModel {
         chipInfoDicionary = Dictionary<String, ChipInfo>()
     }
     
-    func afterInit()
+    private func afterInit()
     {
         //デリゲートを作る
         delegate = MapDelegate(model: self)

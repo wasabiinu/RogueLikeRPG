@@ -7,9 +7,11 @@
 //
 
 struct ChipInfo {
-    var type:Int
-    init (let type:Int)
+    internal var type:Int
+    internal var movable:Bool
+    init (let type:Int, let movable:Bool)
     {
         self.type = type
+        self.movable = movable
     }
 }

@@ -11,9 +11,9 @@
 import SpriteKit
 
 class MapChip {
-    var node:SKSpriteNode;
-    var startX:Int = 0;
-    var startY:Int = 0;
+    internal var node:SKSpriteNode;
+    private var startX:Int = 0;
+    private var startY:Int = 0;
     init(let imageName:String) {
         var texture:SKTexture = SKTexture(imageNamed: imageName)
         node = SKSpriteNode(texture: texture)

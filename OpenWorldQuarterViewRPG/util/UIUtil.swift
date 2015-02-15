@@ -10,7 +10,13 @@ import SpriteKit
 
 class UIUtil {
     
-    class var delegate:UIDelegate
+    private struct ClassProperty {
+        static var delegate:UIDelegate!
+        static var startPos:CGPoint!;
+        static var pinchRect:CGRect = CGRectMake(0, 0, 0, 0);
+    }
+    
+    internal class var delegate:UIDelegate
         {
         set {
         ClassProperty.delegate = newValue
@@ -20,7 +26,7 @@ class UIUtil {
         }
     }
     
-    class var startPos:CGPoint
+    internal class var startPos:CGPoint
         {
         set {
         ClassProperty.startPos = newValue
@@ -30,7 +36,7 @@ class UIUtil {
         }
     }
     
-    class var pinchRect:CGRect
+    internal class var pinchRect:CGRect
         {
         set {
         ClassProperty.pinchRect = newValue
@@ -40,19 +46,13 @@ class UIUtil {
         }
     }
     
-    private struct ClassProperty {
-        static var delegate:UIDelegate!
-        static var startPos:CGPoint!;
-        static var pinchRect:CGRect = CGRectMake(0, 0, 0, 0);
-    }
-    
-    class func setDelegate(delegate:UIDelegate)
+    internal class func setDelegate(delegate:UIDelegate)
     {
         println("MapUtil::setDelegate")
         self.delegate = delegate
     }
     
-    class func setStartPos(touches: NSSet)
+    internal class func setStartPos(touches: NSSet)
     {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(delegate.getModelScene())

@@ -11,7 +11,7 @@ import SpriteKit
 
 class MapUtil {
     
-    class var delegate:MapDelegate
+    internal class var delegate:MapDelegate
     {
         set {
             ClassProperty.delegate = newValue
@@ -25,14 +25,14 @@ class MapUtil {
         static var delegate:MapDelegate!
     }
 
-    class func setDelegate(delegate:MapDelegate)
+    internal class func setDelegate(delegate:MapDelegate)
     {
         println("MapUtil::setDelegate")
         self.delegate = delegate
     }
     
     //受け取ったサイズのレクタングルとタイプでエリアを作って、受け取った親に加えます
-    class func createRectArea(let rect:CGRect, let type:Int)
+    internal class func createRectArea(let rect:CGRect, let type:Int)
     {
         var dx:Int = Int(rect.origin.x)
         var dy:Int = Int(rect.origin.y)
@@ -49,7 +49,7 @@ class MapUtil {
         }
     }
     
-    class func addChip(gridX:Int, gridY:Int, z:Int, info:ChipInfo)
+    internal class func addChip(gridX:Int, gridY:Int, z:Int, info:ChipInfo)
     {
         var groundChip:MapChip = RectTestChip(num:info.type)
         groundChip.position(gridX, gridY: gridY, z: z)
@@ -57,7 +57,7 @@ class MapUtil {
     }
     
     //レクタングルを縦横どちらかランダムに2分割して返します
-    class func twoSplitRect(let OriginalRect:CGRect) -> (CGRect, CGRect)
+    internal class func twoSplitRect(let OriginalRect:CGRect) -> (CGRect, CGRect)
     {
         var direction:Int = Int(arc4random_uniform(2))
         var rect1:CGRect
@@ -91,7 +91,7 @@ class MapUtil {
     }
     
     //分割を繰り返す
-    class func repeatSplitRectangle()
+    internal class func repeatSplitRectangle()
     {
         var OriginalRect:CGRect = CGRectMake(0, 0, 100, 100)
         var rect1:CGRect = CGRectMake(0, 0, 100, 100)
@@ -117,7 +117,7 @@ class MapUtil {
     }
     
     //レクタングルをDictionaryに登録する
-    class func registChipInfo(let rect:CGRect, let type:Int)
+    internal class func registChipInfo(let rect:CGRect, let type:Int)
     {
         
         println("MapUtil::registChipInfo::x:\(rect.origin.x),y:\(rect.origin.y)")
@@ -125,13 +125,13 @@ class MapUtil {
         {
             for (var registHeight:CGFloat = 0; registHeight < rect.size.height; registHeight++)
             {
-                self.delegate.setModelChipDictionary("\(Int(registWidth + rect.origin.x)),\(Int(registHeight + rect.origin.y))", info: ChipInfo(type: type))
+                self.delegate.setModelChipDictionary("\(Int(registWidth + rect.origin.x)),\(Int(registHeight + rect.origin.y))", info: ChipInfo(type: type, movable: false))
             }
         }
         println("MapUtil::registChipInfo::end::\(self.delegate.getModelChipDictionary().count)")
     }
     
-    class func draw()
+    internal class func draw()
     {
         var dictionary:Dictionary<String, ChipInfo> = self.delegate.getModelChipDictionary()
         println("MapUtil::draw")

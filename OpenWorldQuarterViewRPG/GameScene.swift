@@ -9,9 +9,9 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    var mapModel:MapModel!;
-    var uiModel:UIModel!;
-    var myWorld:SKNode = SKNode()
+    private var mapModel:MapModel!;
+    private var uiModel:UIModel!;
+    private var myWorld:SKNode = SKNode()
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         var size:CGSize = view.frame.size
