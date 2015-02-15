@@ -150,7 +150,7 @@ class MapUtil {
             roomArray.append(CGRectMake(roomX, roomY, roomWidth, roomHeight))
         }
         
-        //作ったレクタングルを登録する
+        //作ったレクタングルを登録する/
         for rect2:CGRect in roomArray
         {
             registChipInfo(rect2, type: 0)
