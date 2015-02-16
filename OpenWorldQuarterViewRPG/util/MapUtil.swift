@@ -165,49 +165,51 @@ class MapUtil {
     //通路を作って登録する
     private class func createPasseges(roomArray:[CGRect])
     {
+        
         //格納させているレクタングルを順番に比較する
-        for (var rect1Index:Int = 0; roomArray.count < rect1Index; rect1Index++)
+        for (var originIndex:Int = 0; roomArray.count < originIndex; originIndex++)
         {
-            for (var rect2Index:Int = rect1Index + 1; roomArray.count < rect1Index; rect1Index++)
+            var originRect:CGRect = roomArray[originIndex]
+            var passageRect:CGRect = CGRect()
+            
+            //originRectの外周グリッド起点で十分に長い幅１グリッドの通路レクタングルを1方向ずつ、１グリずらしでのばし、rect2と重なるか調べる
+            //長さを１グリずつのばしていって、先にほかのレクトと交差しないかチェックする
+           
+            var originX:CGFloat
+            var originY:CGFloat
+            var xWidth:CGFloat
+            var yWidth:CGFloat
+            
+            var dictionary:Dictionary<CGRect, [CGRect]> = Dictionary<CGRect, Passage>()
+            
+            //左下＝direction0
+            //幅移動　originYが変化していく
+            for (originY = originRect.origin.y; originY < originRect.size.height + originRect.origin.y; originY++)
             {
-                var rect1:CGRect = roomArray[rect1Index]
-                var rect2:CGRect = roomArray[rect2Index]
-                var passengerRect:CGRect = CGRect()
-                
-                //rect1の外周グリッド起点で十分に長い幅１グリッドの通路レクタングルを1方向ずつ、１グリずらしでのばし、rect2と重なるか調べる
-                //長さを１グリずつのばしていって、先にほかのレクトと交差しないかチェックする
-                
-                //紛らわしい命名なので直す
-                var width:CGFloat
-                var height:CGFloat
-                var x:CGFloat
-                var y:CGFloat
-                
-                //左下＝direction0
-                //幅移動　heightが変化していく
-                for (height = rect1.origin.y; height < rect1.size.height + rect1.origin.y; height++)
+                //長さ移動　xが変化していく
+                for (xWidth = 0; xWidth < 100; xWidth++)
                 {
-                    //長さ移動　xが変化していく
-                    for (x = 0; x < 100; x++)
+                    //起点は、x:originRectのx＋幅で固定、y:originRectのy〜originRectのy+originY
+                    //width:1ずつ増えていく、height:1で固定
+                    passageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth, 1)
+                    //passageと交差するレクタングルがあるか
+                    for intersectRect:CGRect in roomArray
                     {
-                        //起点は、x:rect1のx＋幅で固定、y:rect1のy〜rect1のy+height
-                        //width:1ずつ増えていく、height:1で固定
-                        passengerRect = CGRectMake(rect1.origin.x + rect1.width, height, x, 1)
-                        //自分より番号が若いほかのレクタングルと交差したら
-                        if (true)
+                        if (CGRectIntersectsRect(passageRect, intersectRect))
                         {
-                            break
+                            //交差した情報を格納する
+                            
+                            //初期化
+                            if (dictionary[intersectRect] == nil)
+                            {
+                                dictionary[intersectRect] = Passage(originRect)
+                            }
+                            
+                            
+                            dictionary[intersectRect].setPassage(intersectRect, passageRect)
                         }
                     }
                 }
-                
-                
-                //交差チェック　交差していたらtrue
-                if (CGRectIntersectsRect(passengerRect, rect2))
-                {
-                    
-                }
-                
             }
         }
     }
