@@ -50,7 +50,7 @@
 		208C7A3B1A87B1FB0086DB72 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */; };
 		C37132231A919B4C0085F2C0 /* NeighborRoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37132211A919B4C0085F2C0 /* NeighborRoomInfo.swift */; };
 		C37132241A919B4C0085F2C0 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37132221A919B4C0085F2C0 /* RoomInfo.swift */; };
-		C3CFE8951A92ED2400404006 /* MapChipRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CFE8941A92ED2400404006 /* MapChipRect.swift */; };
+		C3CFE8971A92F59500404006 /* HashableRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CFE8961A92F59500404006 /* HashableRect.swift */; };
 		C3E1660A1A8C57A200B9CAAC /* UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E166091A8C57A200B9CAAC /* UIModel.swift */; };
 		C3E1660C1A8C590800B9CAAC /* UIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1660B1A8C590800B9CAAC /* UIDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -113,7 +113,7 @@
 		208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
 		C37132211A919B4C0085F2C0 /* NeighborRoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborRoomInfo.swift; sourceTree = "<group>"; };
 		C37132221A919B4C0085F2C0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
-		C3CFE8941A92ED2400404006 /* MapChipRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapChipRect.swift; sourceTree = "<group>"; };
+		C3CFE8961A92F59500404006 /* HashableRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableRect.swift; sourceTree = "<group>"; };
 		C3E166091A8C57A200B9CAAC /* UIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModel.swift; sourceTree = "<group>"; };
 		C3E1660B1A8C590800B9CAAC /* UIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -297,7 +297,7 @@
 				C37132221A919B4C0085F2C0 /* RoomInfo.swift */,
 				208C7A311A8765C30086DB72 /* ChipInfo.swift */,
 				207592C81A923538003935B2 /* Passage.swift */,
-				C3CFE8941A92ED2400404006 /* MapChipRect.swift */,
+				C3CFE8961A92F59500404006 /* HashableRect.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 				207592C91A923538003935B2 /* Passage.swift in Sources */,
 				C3E1660C1A8C590800B9CAAC /* UIDelegate.swift in Sources */,
 				C37132241A919B4C0085F2C0 /* RoomInfo.swift in Sources */,
-				C3CFE8951A92ED2400404006 /* MapChipRect.swift in Sources */,
+				C3CFE8971A92F59500404006 /* HashableRect.swift in Sources */,
 				208C7A361A8766850086DB72 /* MapModel.swift in Sources */,
 				208C7A321A8765C30086DB72 /* ChipInfo.swift in Sources */,
 				C3E1660A1A8C57A200B9CAAC /* UIModel.swift in Sources */,
