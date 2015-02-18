@@ -24,6 +24,7 @@ internal struct Passage {
     {
         self.originRect = originRect
         self.passages = Dictionary<HashableRect, Passages>()
+        passages[HashableRect(x:0,y:0,width:0,height:0)] = Passages(intercect:HashableRect(x:0,y:0,width:0,height:0))
     }
     
     internal func setPassage(intersectRect:HashableRect, passageRect:CGRect)
