@@ -180,7 +180,7 @@ class MapUtil {
             var xWidth:CGFloat
             var yWidth:CGFloat
             
-            var dictionary:Dictionary<CGRect, [CGRect]> = Dictionary<CGRect, Passage>()
+            var dictionary:Dictionary<HashableRect, Passage> = Dictionary<HashableRect, Passage>()
             
             //左下＝direction0
             //幅移動　originYが変化していく
@@ -199,14 +199,15 @@ class MapUtil {
                         {
                             //交差した情報を格納する
                             
+                            var hashableRect:HashableRect = HashableRect(x: intersectRect.origin.x, y: intersectRect.origin.y, width: intersectRect.size.width, height: intersectRect.size.height)
+                            
                             //初期化
-                            if (dictionary[intersectRect] == nil)
+                            if (dictionary[hashableRect] == nil)
                             {
-                                dictionary[intersectRect] = Passage(originRect)
+                                dictionary[hashableRect] = Passage(originRect: originRect)
                             }
                             
-                            
-                            dictionary[intersectRect].setPassage(intersectRect, passageRect)
+                            dictionary[hashableRect]!.setPassage(hashableRect, passageRect: passageRect)
                         }
                     }
                 }

@@ -17,7 +17,7 @@ import SpriteKit
 //Passage.passages[intercect].intercect -> CGRect
 //Passage.passages[intercect].passageList -> [CGRect]
 
-internal struct Passage {
+internal class Passage {
     internal var passages:Dictionary<HashableRect, Passages>
     internal var originRect:CGRect
     init (originRect:CGRect)
@@ -29,13 +29,11 @@ internal struct Passage {
     
     internal func setPassage(intersectRect:HashableRect, passageRect:CGRect)
     {
-        var p:Passages = Passages(intercect: intersectRect)
-        //if (passages[intersectRect] == nil)
-        //{
-            passages[intersectRect] = p
-        //}
-        var pass:Passages = passages[intersectRect]!
-        pass.passageList.append(passageRect)
+        if (passages[intersectRect] == nil)
+        {
+            passages[intersectRect] = Passages(intercect: intersectRect)
+        }
+        passages[intersectRect]!.passageList.append(passageRect)
         
     }
     
