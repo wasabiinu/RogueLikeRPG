@@ -11,17 +11,27 @@ import SpriteKit
 internal struct HashableRect {
     internal var origin:Origin
     internal var size:Size
-    internal var cgRect:CGRect {
+    internal var cgRect:CGRect
+    /* {
         get {
             return CGRectMake(self.origin.x, self.origin.y, self.size.width, self.size.height)
         }
-    }
+    }*/
     
     init (let x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat)
     {
         origin = Origin(x: x, y: y)
         size = Size(width: width, height:height)
+        cgRect = CGRectMake(self.origin.x, self.origin.y, self.size.width, self.size.height)
     }
+    
+    /*
+    convenience init (let cgRect:CGRect)
+    {
+        origin = Origin(x: cgRect.orign.x, y:cgRect.origin.y)
+        size = Size(width: cgRect.size.width, height:cgRect.size.height)
+    }
+*/
     
     internal struct Origin {
         internal var x:CGFloat
