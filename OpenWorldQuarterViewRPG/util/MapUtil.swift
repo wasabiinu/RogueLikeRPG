@@ -135,7 +135,7 @@ class MapUtil {
         //ランダムに回転させる
         let xRotationNum:UInt32 = Random.random(2)
         let yRotationNum:UInt32 = Random.random(2)
-        rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
+        //rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
     }
     
     //部屋を作って登録する
@@ -183,7 +183,6 @@ class MapUtil {
             var xWidth:CGFloat
             var yWidth:CGFloat
             var registPassageRect:CGRect
-            var isNext:Bool = false
             
             var dictionary:Dictionary<HashableRect, Passage> = Dictionary<HashableRect, Passage>()
             
@@ -192,8 +191,7 @@ class MapUtil {
             for (originY = originRect.origin.y; originY < originRect.size.height + originRect.origin.y; originY++)
             {
                 //長さ移動　xが変化していく
-                isNext = false
-                for (xWidth = 0; xWidth < 100 && isNext == false; xWidth++)
+                changeIntersectX: for (xWidth = 0; xWidth < 100; xWidth++)
                 {
                     //起点は、x:originRectのx＋幅で固定、y:originRectのy〜originRectのy+originY
                     //width:1ずつ増えていく、height:1で固定
@@ -213,12 +211,13 @@ class MapUtil {
                                 dictionary[hashableRect] = Passage(originRect: originRect)
                             }
                             
-                            registPassageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth - 1, 1)
-                            dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
-                            
+                            if(xWidth - 1 > 0)
+                            {
+                                registPassageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth - 1, 1)
+                                dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
+                            }
                             //交差したレクタングルがあったから、通路を延ばすのをやめる
-                            isNext = true
-                            break
+                            break changeIntersectX
                         }
                     }
                 }
@@ -229,8 +228,7 @@ class MapUtil {
             for (originX = originRect.origin.x; originX < originRect.size.width + originRect.origin.x; originX++)
             {
                 //長さ移動　yが変化していく
-                isNext = false
-                for (yWidth = 0; yWidth < 100 && isNext == false; yWidth++)
+                changeIntersectY: for (yWidth = 0; yWidth < 100; yWidth++)
                 {
                     //起点は、y:originRectのy＋幅で固定、x:originRectのx〜originRectのx+originX
                     //height:1ずつ増えていく、width:1で固定
@@ -250,12 +248,15 @@ class MapUtil {
                                 dictionary[hashableRect] = Passage(originRect: originRect)
                             }
                             
-                            registPassageRect = CGRectMake(originX, originRect.origin.y + originRect.height, 1, yWidth - 1)
-                            dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
+                            if (yWidth - 1 > 0)
+                            {
+                                registPassageRect = CGRectMake(originX, originRect.origin.y + originRect.height, 1, yWidth - 1)
+                                dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
+                            }
                             
                             //交差したレクタングルがあったから、通路を延ばすのをやめる
-                            isNext = true
-                            break
+                            
+                            break changeIntersectY
                         }
                     }
                 }
