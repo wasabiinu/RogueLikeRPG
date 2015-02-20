@@ -215,6 +215,8 @@ class MapUtil {
                             
                             registPassageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth - 1, 1)
                             dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
+                            
+                            //交差したレクタングルがあったから、通路を延ばすのをやめる
                             isNext = true
                             break
                         }
@@ -251,6 +253,7 @@ class MapUtil {
                             registPassageRect = CGRectMake(originX, originRect.origin.y + originRect.height, 1, yWidth - 1)
                             dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
                             
+                            //交差したレクタングルがあったから、通路を延ばすのをやめる
                             isNext = true
                             break
                         }
@@ -269,11 +272,6 @@ class MapUtil {
                 }
             }
         }
-    }
-    
-    private class func checkIntersect(passageRect:CGRect, intersectRect:CGRect, dictionary:Dictionary<HashableRect, Passage>)
-    {
-        
     }
     
     //レクタングルをDictionaryに登録する
