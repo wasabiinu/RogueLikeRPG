@@ -127,9 +127,10 @@ class MapUtil {
         rectArray.append(rect1)
         
         //部屋を作る
-        createRooms(rectArray)
+        var roomArray:[CGRect] = createRooms(rectArray)
         
         //通路を作る
+        createPasseges(roomArray)
         
         //ランダムに回転させる
         let xRotationNum:UInt32 = Random.random(2)
@@ -138,7 +139,7 @@ class MapUtil {
     }
     
     //部屋を作って登録する
-    private class func createRooms(let array:[CGRect])
+    private class func createRooms(let array:[CGRect]) -> [CGRect]
     {
         var roomArray:[CGRect] = [CGRect]()
         for rect:CGRect in array
@@ -160,15 +161,17 @@ class MapUtil {
         {
             registChipInfo(rect2, type: 0, moovable: true)
         }
+        
+        return roomArray
     }
     
     //通路を作って登録する
     private class func createPasseges(roomArray:[CGRect])
     {
-        
         //格納させているレクタングルを順番に比較する
-        for (var originIndex:Int = 0; roomArray.count < originIndex; originIndex++)
+        for (var originIndex:Int = 0; roomArray.count > originIndex; originIndex++)
         {
+            println("originIndex:\(originIndex)")
             var originRect:CGRect = roomArray[originIndex]
             var passageRect:CGRect = CGRect()
             
@@ -179,22 +182,23 @@ class MapUtil {
             var originY:CGFloat
             var xWidth:CGFloat
             var yWidth:CGFloat
+            var registPassageRect:CGRect
             
             var dictionary:Dictionary<HashableRect, Passage> = Dictionary<HashableRect, Passage>()
             
-            //左下＝direction0
-            //幅移動　originYが変化していく
-            for (originY = originRect.origin.y; originY < originRect.size.height + originRect.origin.y; originY++)
+            for intersectRect:CGRect in roomArray
             {
-                //長さ移動　xが変化していく
-                for (xWidth = 0; xWidth < 100; xWidth++)
+                //左下＝direction0
+                //幅移動　originYが変化していく
+                for (originY = originRect.origin.y; originY < originRect.size.height + originRect.origin.y; originY++)
                 {
-                    //起点は、x:originRectのx＋幅で固定、y:originRectのy〜originRectのy+originY
-                    //width:1ずつ増えていく、height:1で固定
-                    passageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth, 1)
-                    //passageと交差するレクタングルがあるか
-                    for intersectRect:CGRect in roomArray
+                    //長さ移動　xが変化していく
+                    for (xWidth = 0; xWidth < 100; xWidth++)
                     {
+                        //起点は、x:originRectのx＋幅で固定、y:originRectのy〜originRectのy+originY
+                        //width:1ずつ増えていく、height:1で固定
+                        passageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth, 1)
+                        //passageと交差するレクタングルがあるか
                         if (CGRectIntersectsRect(passageRect, intersectRect))
                         {
                             //交差した情報を格納する
@@ -208,18 +212,69 @@ class MapUtil {
                             }
                             
                             dictionary[hashableRect]!.setPassage(hashableRect, passageRect: passageRect)
+                            
+                            //registPassageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth - 1, 1)
+                            //registChipInfo(passageRect, type: 4, moovable: true)
+                            break
                         }
                     }
                 }
+                
+                //右下=direction1
+                //幅移動　originXが変化していく
+                for (originX = originRect.origin.x; originX < originRect.size.width + originRect.origin.x; originX++)
+                {
+                    //長さ移動　yが変化していく
+                    for (yWidth = 0; yWidth < 100; yWidth++)
+                    {
+                        //起点は、y:originRectのy＋幅で固定、x:originRectのx〜originRectのx+originX
+                        //height:1ずつ増えていく、width:1で固定
+                        passageRect = CGRectMake(originX, originRect.origin.y + originRect.height, 1, yWidth)
+                        //passageと交差するレクタングルがあるか
+                        if (CGRectIntersectsRect(passageRect, intersectRect))
+                        {
+                            //交差した情報を格納する
+                            
+                            var hashableRect:HashableRect = HashableRect(x: intersectRect.origin.x, y: intersectRect.origin.y, width: intersectRect.size.width, height: intersectRect.size.height)
+                            
+                            //初期化
+                            if (dictionary[hashableRect] == nil)
+                            {
+                                dictionary[hashableRect] = Passage(originRect: originRect)
+                            }
+                            
+                            dictionary[hashableRect]!.setPassage(hashableRect, passageRect: passageRect)
+                            
+                            //registPassageRect = CGRectMake(originX, originRect.origin.y + originRect.height, 1, yWidth - 1)
+                            //registChipInfo(passageRect, type: 4, moovable: true)
+                            break
+                        }
+                    }
+                }
+                
+                //生成方向的に考えて、右上、左上の調査は不要のはず
+            }
+            
+            //dictionaryに格納された通路を登録していく
+            for passage:Passage in dictionary.values {
+                var array:[CGRect] = passage.getRandomPassage()
+                for cgRect:CGRect in array {
+                    registChipInfo(cgRect, type: 4, moovable: true)
+                }
             }
         }
+    }
+    
+    private class func checkIntersect(passageRect:CGRect, intersectRect:CGRect, dictionary:Dictionary<HashableRect, Passage>)
+    {
+        
     }
     
     //レクタングルをDictionaryに登録する
     private class func registChipInfo(let rect:CGRect, let type:Int, let moovable:Bool)
     {
         
-        println("MapUtil::registChipInfo::x:\(rect.origin.x),y:\(rect.origin.y)")
+        //println("MapUtil::registChipInfo::x:\(rect.origin.x),y:\(rect.origin.y)")
         for (var registWidth:CGFloat = 0; registWidth < rect.size.width; registWidth++)
         {
             for (var registHeight:CGFloat = 0; registHeight < rect.size.height; registHeight++)
@@ -227,7 +282,7 @@ class MapUtil {
                 self.delegate.setModelChipDictionary("\(Int(registWidth + rect.origin.x)),\(Int(registHeight + rect.origin.y))", info: ChipInfo(type: type, movable: moovable))
             }
         }
-        println("MapUtil::registChipInfo::end::\(self.delegate.getModelChipDictionary().count)")
+        //println("MapUtil::registChipInfo::end::\(self.delegate.getModelChipDictionary().count)")
     }
     
     //作成したマップエリアを回転させる

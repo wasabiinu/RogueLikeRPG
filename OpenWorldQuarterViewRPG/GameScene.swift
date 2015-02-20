@@ -19,8 +19,8 @@ class GameScene: SKScene {
         self.backgroundColor = UIColor(red:0.15, green:0.15, blue:0.3, alpha:1.0)
         self.anchorPoint = CGPointMake(0.5, 1)
         myWorld.name = "world"
-        myWorld.xScale = 0.5
-        myWorld.yScale = 0.5
+        myWorld.xScale = 0.2
+        myWorld.yScale = 0.2
         
         
         var camera:SKNode = SKNode()

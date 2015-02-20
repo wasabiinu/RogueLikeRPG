@@ -33,7 +33,21 @@ internal class Passage {
             self.passages[intersectRect] = Passages(intercect: intersectRect)
         }
          self.passages[intersectRect]!.passageList.append(passageRect)
+    }
+    
+    internal func getRandomPassage() -> [CGRect]
+    {
+        var array:[CGRect] = [CGRect]()
+        for p:Passages in passages.values
+        {
+            var passageList:[CGRect] = p.passageList
+            var count:Int = passageList.count
+            var max:Int = Int(Random.random(UInt32(count)))
+            var cgRect:CGRect = passageList[max]
+            array.append(cgRect)
+        }
         
+        return array
     }
     
     
