@@ -38,7 +38,6 @@ internal class Passage {
     internal func getRandomPassage() -> [CGRect]
     {
         var array:[CGRect] = [CGRect]()
-        //var count:Int = 0
         _for: for p:Passages in passages.values
         {
             var passageList:[CGRect]? = p.passageList
@@ -120,7 +119,6 @@ internal class Passage {
                     joinRect = CGRectMake(cgRect2.origin.x,cgRect1.origin.y + splitHeight,cgRect1.origin.x - cgRect2.origin.x + 1, 1)
                 }
             }
-            
             
             array.append(startRect)
             array.append(goalRect)

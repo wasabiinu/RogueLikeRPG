@@ -153,7 +153,10 @@ class MapUtil {
             roomHeight = rect.height - CGFloat(Random.random(UInt32(rect.height) / 4)) - roomY - 1
             roomX += rect.origin.x
             roomY += rect.origin.y
-            roomArray.append(CGRectMake(roomX, roomY, roomWidth, roomHeight))
+            if (roomWidth > 0 && roomHeight > 0)
+            {
+                roomArray.append(CGRectMake(roomX, roomY, roomWidth, roomHeight))
+            }
         }
         
         //作ったレクタングルを登録する
