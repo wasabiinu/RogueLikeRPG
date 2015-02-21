@@ -135,7 +135,7 @@ internal class MapUtil {
         //ランダムに回転させる
         let xRotationNum:UInt32 = Random.random(2)
         let yRotationNum:UInt32 = Random.random(2)
-        //rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
+        rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
     }
     
     //部屋を作って登録する
@@ -390,7 +390,11 @@ internal class MapUtil {
                 _nodes[nodeNum].edges_cost.removeAtIndex(removeNum)
                 _nodes[nodeNum].passages.removeAtIndex(removeNum)
                 
-                if (RouteUtil.getArrival(_nodes, start: start, goal: nodeNum) || RouteUtil.getArrival(_nodes, start: nodeNum, goal: goal))
+                if (
+                    (RouteUtil.getArrival(_nodes, start: start, goal: nodeNum) || RouteUtil.getArrival(_nodes, start: nodeNum, goal: goal))
+                    &&
+                    RouteUtil.getArrival(_nodes, start: start, goal: goal)
+                    )
                 {
                     nodes = _nodes
                 }
