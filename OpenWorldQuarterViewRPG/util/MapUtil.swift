@@ -278,6 +278,12 @@ class MapUtil {
         }
     }
     
+    /*
+    private class func checkArrival(start, end, route) -> Bool
+    {
+        return false
+    }*/
+    
     //レクタングルをDictionaryに登録する
     private class func registChipInfo(let rect:CGRect, let type:Int, let moovable:Bool)
     {
