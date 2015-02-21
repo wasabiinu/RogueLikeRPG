@@ -390,7 +390,7 @@ internal class MapUtil {
                 _nodes[nodeNum].edges_cost.removeAtIndex(removeNum)
                 _nodes[nodeNum].passages.removeAtIndex(removeNum)
                 
-                if (RouteUtil.getArrival(_nodes, start: start, goal: goal))
+                if (RouteUtil.getArrival(_nodes, start: start, goal: nodeNum) || RouteUtil.getArrival(_nodes, start: nodeNum, goal: goal))
                 {
                     nodes = _nodes
                 }

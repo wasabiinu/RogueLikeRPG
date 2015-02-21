@@ -17,7 +17,11 @@ internal class RouteUtil
     
     internal class func getArrival(var nodes:[Node], start:Int, goal:Int) -> Bool
     {
-        return doDijkstra(nodes, start:start, goal:goal).count > 0
+        if(doDijkstra(nodes, start:start, goal:goal).count > 0)
+        {
+            return true
+        }
+        return false
     }
     
     private class func doDijkstra(var nodes:[Node], start:Int, goal:Int) -> [Int]
@@ -87,7 +91,6 @@ internal class RouteUtil
         {
             return []
         }
-        
         return routes
     }
 }
