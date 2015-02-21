@@ -16,9 +16,8 @@ class MapModel {
     {
         println("MapModel::init")
         self.node = node
-        var test:DijkstraTest = DijkstraTest()
         
-        //afterInit()
+        afterInit()
     }
     
     deinit {

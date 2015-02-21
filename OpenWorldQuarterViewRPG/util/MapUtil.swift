@@ -9,7 +9,7 @@
 
 import SpriteKit
 
-class MapUtil {
+internal class MapUtil {
     
     internal class var delegate:MapDelegate
     {

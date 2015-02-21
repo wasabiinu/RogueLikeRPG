@@ -1,38 +1,29 @@
 //
-//  DijkstraTest.swift
+//  RouteUtil.swift
 //  OpenWorldQuarterViewRPG
 //
 //  Created by 横山 優 on 2015/02/21.
 //  Copyright (c) 2015年 Yu Yokoyama. All rights reserved.
 //
-//参考　http://www.deqnotes.net/acmicpc/dijkstra/
 
 import Foundation
-
-
-
-
-internal class DijkstraTest
+internal class RouteUtil
 {
-    internal var nodes:[Node]
-    internal let startNo:Int = 0
-    internal let goalNo:Int = 5
-    
-    init (){
-        nodes = [Node]()
-        nodes.append(Node(edges_to: [1,2], edges_cost: [1,3]))
-        nodes.append(Node(edges_to:[2,3], edges_cost:[1,4]))
-        nodes.append(Node(edges_to: [3], edges_cost: [1]))
-        nodes.append(Node(edges_to: [4,5],edges_cost: [1,10]))
-        nodes.append(Node(edges_to: [5],edges_cost: [1]))
-        nodes.append(Node(edges_to: [-1], edges_cost: [1]))
-        self.doDijkstra()
+    internal class func getRoute(var nodes:[Node], start:Int, goal:Int) -> [Int]
+    {
+        
+        return doDijkstra(nodes, start:start, goal:goal)
     }
     
-    internal func doDijkstra()
+    internal class func getArrival(var nodes:[Node], start:Int, goal:Int) -> Bool
+    {
+        return doDijkstra(nodes, start:start, goal:goal).count > 0
+    }
+    
+    private class func doDijkstra(var nodes:[Node], start:Int, goal:Int) -> [Int]
     {
         //スタートのコストは0
-        nodes[startNo].cost = 0
+        nodes[start].cost = 0
         //道筋
         var routes:[Int] = [Int]()
         
@@ -64,15 +55,13 @@ internal class DijkstraTest
                     break search
                 }
             }
-        
-            println("edges_to:\(doneNode?.edges_to), doneNode.cost:\(doneNode?.cost)")
             
             //確定フラグを立てる
             nodes[doneNodeNumber].done = true
             routes.append(doneNodeNumber)
             
             //ゴールに到達していたらループを抜ける
-            if (doneNodeNumber == goalNo)
+            if (doneNodeNumber == goal)
             {
                 break loop
             }
@@ -85,13 +74,10 @@ internal class DijkstraTest
                 if (nodes[to].cost < 0 || cost < nodes[to].cost)
                 {
                     nodes[to].cost = cost
-                    println("to:\(to), cost:\(cost)")
                 }
             }
             
         }
-        
-        println(routes)
+        return routes
     }
-
 }
