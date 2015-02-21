@@ -33,7 +33,7 @@ internal class RouteUtil
         var reached:Bool = false
         
         //アルゴリズム実行
-        loop: for(var loop:Int = 0; loop < 10000 ; loop++)
+        loop: for(var loop:Int = 0; loop < 100 ; loop++)
         {
             //確定ノードを探す
             var doneNode:Node? = nil //確定ノード
