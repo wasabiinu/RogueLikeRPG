@@ -20,9 +20,11 @@ import SpriteKit
 internal class Passage {
     internal var passages:Dictionary<HashableRect, Passages>
     internal var originRect:CGRect
-    init (originRect:CGRect)
+    internal var roomNum:Int
+    init (originRect:CGRect, roomNum:Int)
     {
         self.originRect = originRect
+        self.roomNum = roomNum
         self.passages = Dictionary<HashableRect, Passages>()
     }
     

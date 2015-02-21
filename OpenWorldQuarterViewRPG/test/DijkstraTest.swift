@@ -20,12 +20,14 @@ internal class DijkstraTest
     
     init (){
         nodes = [Node]()
+        /*
         nodes.append(Node(edges_to: [1,2], edges_cost: [1,3]))
         nodes.append(Node(edges_to:[2,3], edges_cost:[1,4]))
         nodes.append(Node(edges_to: [3], edges_cost: [1]))
         nodes.append(Node(edges_to: [4,5],edges_cost: [1,10]))
         nodes.append(Node(edges_to: [5],edges_cost: [1]))
         nodes.append(Node(edges_to: [-1], edges_cost: [1]))
+        */
         self.doDijkstra()
     }
     

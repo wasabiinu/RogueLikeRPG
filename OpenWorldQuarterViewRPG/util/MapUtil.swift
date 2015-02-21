@@ -171,12 +171,21 @@ internal class MapUtil {
     //通路を作って登録する
     private class func createPasseges(roomArray:[CGRect])
     {
+        //各部屋の接続情報を格納する配列
+        var nodes:[Node] = [Node]()
+        
         //格納させているレクタングルを順番に比較する
         for (var originIndex:Int = 0; roomArray.count > originIndex; originIndex++)
         {
             println("originIndex:\(originIndex)")
             var originRect:CGRect = roomArray[originIndex]
             var passageRect:CGRect = CGRect()
+            
+            //接続先リスト
+            var intersects:[Int] = [Int]()
+            var costs:[Int] = [Int]()
+            var passages:[Passage] = [Passage]()
+            
             
             //originRectの外周グリッド起点で十分に長い幅１グリッドの通路レクタングルを1方向ずつ、１グリずらしでのばし、rect2と重なるか調べる
             //長さを１グリずつのばしていって、先にほかのレクトと交差しないかチェックする
@@ -200,8 +209,9 @@ internal class MapUtil {
                     //width:1ずつ増えていく、height:1で固定
                     passageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth, 1)
                     //passageと交差するレクタングルがあるか
-                    for intersectRect:CGRect in roomArray
+                    for (var roomCount:Int = 0; roomCount < roomArray.count; roomCount++)
                     {
+                        var intersectRect:CGRect = roomArray[roomCount]
                         if (CGRectIntersectsRect(passageRect, intersectRect))
                         {
                             //交差した情報を格納する
@@ -211,7 +221,7 @@ internal class MapUtil {
                             //初期化
                             if (dictionary[hashableRect] == nil)
                             {
-                                dictionary[hashableRect] = Passage(originRect: originRect)
+                                dictionary[hashableRect] = Passage(originRect: originRect, roomNum:roomCount)
                             }
                             
                             if(xWidth - 1 > 0)
@@ -219,6 +229,23 @@ internal class MapUtil {
                                 registPassageRect = CGRectMake(originRect.origin.x + originRect.width, originY, xWidth - 1, 1)
                                 dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
                             }
+                            
+                            //交差したレクタングルを登録する
+                            var isReg:Bool = false
+                            for intersectNum:Int in intersects
+                            {
+                                if( intersectNum == roomCount)
+                                {
+                                    isReg = true
+                                }
+                            }
+                            
+                            if (isReg == false)
+                            {
+                                intersects.append(roomCount)
+                                costs.append(1)
+                            }
+                            
                             //交差したレクタングルがあったから、通路を延ばすのをやめる
                             break changeIntersectX
                         }
@@ -237,8 +264,9 @@ internal class MapUtil {
                     //height:1ずつ増えていく、width:1で固定
                     passageRect = CGRectMake(originX, originRect.origin.y + originRect.height, 1, yWidth)
                     //passageと交差するレクタングルがあるか
-                    for intersectRect:CGRect in roomArray
+                    for (var roomCount:Int = 0; roomCount < roomArray.count; roomCount++)
                     {
+                        var intersectRect:CGRect = roomArray[roomCount]
                         if (CGRectIntersectsRect(passageRect, intersectRect))
                         {
                             //交差した情報を格納する
@@ -248,13 +276,29 @@ internal class MapUtil {
                             //初期化
                             if (dictionary[hashableRect] == nil)
                             {
-                                dictionary[hashableRect] = Passage(originRect: originRect)
+                                dictionary[hashableRect] = Passage(originRect: originRect, roomNum:roomCount)
                             }
                             
                             if (yWidth - 1 > 0)
                             {
                                 registPassageRect = CGRectMake(originX, originRect.origin.y + originRect.height, 1, yWidth - 1)
                                 dictionary[hashableRect]!.setPassage(hashableRect, passageRect: registPassageRect)
+                            }
+                            
+                            //交差したレクタングルを登録する
+                            var isReg:Bool = false
+                            for intersectNum:Int in intersects
+                            {
+                                if( intersectNum == roomCount)
+                                {
+                                    isReg = true
+                                }
+                            }
+                            
+                            if (isReg == false)
+                            {
+                                intersects.append(roomCount)
+                                costs.append(1)
                             }
                             
                             //交差したレクタングルがあったから、通路を延ばすのをやめる
@@ -266,10 +310,33 @@ internal class MapUtil {
             }
             
             //生成方向的に考えて、右上、左上の調査は不要のはず
-        
             
-            //dictionaryに格納された通路を登録していく
+            
+            //初期化
             for passage:Passage in dictionary.values {
+                passages.append(passage)
+            }
+            
+            for passage:Passage in dictionary.values {
+                for(var j:Int = 0; j < intersects.count; j++)
+                {
+                    if (j == passage.roomNum)
+                    {
+                        passages[passage.roomNum] = passage
+                    }
+                }
+            }
+            
+            //接続先情報を登録する
+            nodes.append(Node(edges_to: intersects, edges_cost: costs, passages: passages))
+        }
+        
+        //nodesから通路を登録していく
+        for node:Node in nodes
+        {
+            var passages:[Passage] = node.passages
+            for passage:Passage in passages
+            {
                 var array:[CGRect] = passage.getRandomPassage()
                 for cgRect:CGRect in array {
                     registChipInfo(cgRect, type: 4, moovable: true)
