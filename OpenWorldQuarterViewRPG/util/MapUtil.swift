@@ -98,9 +98,9 @@ internal class MapUtil {
     //分割を繰り返す
     internal class func repeatSplitRectangle()
     {
-        var OriginalRect:CGRect = CGRectMake(0, 0, 100, 100)
-        var rect1:CGRect = CGRectMake(0, 0, 100, 100)
-        var rect2:CGRect = CGRectMake(0, 0, 100, 100)
+        var OriginalRect:CGRect = CGRectMake(0, 0, MapConfig.AREA_SIZE.width, MapConfig.AREA_SIZE.height)
+        var rect1:CGRect = CGRectMake(0, 0, MapConfig.AREA_SIZE.width, MapConfig.AREA_SIZE.height)
+        var rect2:CGRect = CGRectMake(0, 0, MapConfig.AREA_SIZE.width, MapConfig.AREA_SIZE.height)
         var rectArray:[CGRect] = [CGRect]()
         var i:Int = 0;
         var minWidth:Int = 2;
@@ -331,6 +331,74 @@ internal class MapUtil {
             nodes.append(Node(edges_to: intersects, edges_cost: costs, passages: passages))
         }
         
+        //スタート通路を作る
+        var start:Int = 0
+        var startPassageRect:CGRect = CGRectMake(0, 0, 0, 0)
+        startLoop: while(true)
+        {
+            var startPassageX:CGFloat = CGFloat(Random.random(UInt32(MapConfig.AREA_SIZE.width) - 2) + 1)
+            for (var startPassageHeight:CGFloat = 1; startPassageHeight < MapConfig.AREA_SIZE.width; startPassageHeight++)
+            {
+                startPassageRect = CGRectMake(startPassageX, 0, 1, startPassageHeight)
+                for (var startRoomNum:Int = 0; startRoomNum < roomArray.count; startRoomNum++)
+                {
+                    var intersectRoomRect:CGRect = roomArray[startRoomNum]
+                    if (CGRectIntersectsRect(startPassageRect, intersectRoomRect))
+                    {
+                        start = startRoomNum
+                        break startLoop
+                    }
+                }
+            }
+        }
+        
+        //ゴール通路を作る
+        var goal:Int = nodes.count - 1
+        var goalPassageRect:CGRect = CGRectMake(0, 0, 0, 0)
+        goalLoop: while(true)
+        {
+            var goalPassageX:CGFloat = CGFloat(Random.random(UInt32(MapConfig.AREA_SIZE.width) - 2) + 1)
+            for (var goalPassageHeight:CGFloat = 1; goalPassageHeight < MapConfig.AREA_SIZE.width; goalPassageHeight++)
+            {
+                goalPassageRect = CGRectMake(goalPassageX, MapConfig.AREA_SIZE.height - goalPassageHeight, 1, goalPassageHeight)
+                for (var goalRoomNum:Int = 0; goalRoomNum < roomArray.count; goalRoomNum++)
+                {
+                    var intersectRoomRectGoal:CGRect = roomArray[goalRoomNum]
+                    if (CGRectIntersectsRect(goalPassageRect, intersectRoomRectGoal))
+                    {
+                        goal = goalRoomNum
+                        break goalLoop
+                    }
+                }
+            }
+        }
+        
+        
+        for (var nodeNum:Int = 0; nodeNum < nodes.count; nodeNum++)
+        {
+            var node:Node = nodes[nodeNum]
+            var edges_to:[Int] = node.edges_to
+            for (var removeNum:Int = 0; removeNum < edges_to.count; removeNum++)
+            {
+                var _nodes:[Node] = nodes
+                
+                if (_nodes[nodeNum].edges_to.count <= removeNum)
+                {
+                    continue
+                }
+                _nodes[nodeNum].edges_to.removeAtIndex(removeNum)
+                _nodes[nodeNum].edges_cost.removeAtIndex(removeNum)
+                _nodes[nodeNum].passages.removeAtIndex(removeNum)
+                
+                if (RouteUtil.getArrival(_nodes, start: start, goal: goal))
+                {
+                    nodes = _nodes
+                }
+                
+            }
+            
+        }
+        
         //nodesから通路を登録していく
         for node:Node in nodes
         {
@@ -343,13 +411,16 @@ internal class MapUtil {
                 }
             }
         }
+        
+        //スタート通路を登録
+        startPassageRect = CGRectMake(startPassageRect.origin.x, startPassageRect.origin.y, startPassageRect.size.width, startPassageRect.size.height - 1)
+        registChipInfo(startPassageRect, type: 4, moovable: true)
+        
+        //ゴール通路を登録
+        goalPassageRect = CGRectMake(goalPassageRect.origin.x, goalPassageRect.origin.y + 1, goalPassageRect.size.width, goalPassageRect.size.height - 1)
+        registChipInfo(goalPassageRect, type: 4, moovable: true)
+        
     }
-    
-    /*
-    private class func checkArrival(start, end, route) -> Bool
-    {
-        return false
-    }*/
     
     //レクタングルをDictionaryに登録する
     private class func registChipInfo(let rect:CGRect, let type:Int, let moovable:Bool)

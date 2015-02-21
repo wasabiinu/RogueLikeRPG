@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		201953981A988A0200286070 /* RouteUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953971A988A0200286070 /* RouteUtil.swift */; };
+		2019539B1A98B96C00286070 /* MapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2019539A1A98B96C00286070 /* MapConfig.swift */; };
 		201AAFED1A9794F800BF5FCB /* DijkstraTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AAFEC1A9794F800BF5FCB /* DijkstraTest.swift */; };
 		202148001A839F4400070FA1 /* mapchip.png in Resources */ = {isa = PBXBuildFile; fileRef = 202147FF1A839F4300070FA1 /* mapchip.png */; };
 		2028EDA11A824F4700894577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDA01A824F4700894577 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		201953971A988A0200286070 /* RouteUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUtil.swift; sourceTree = "<group>"; };
+		2019539A1A98B96C00286070 /* MapConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConfig.swift; sourceTree = "<group>"; };
 		201AAFEC1A9794F800BF5FCB /* DijkstraTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DijkstraTest.swift; sourceTree = "<group>"; };
 		202147FF1A839F4300070FA1 /* mapchip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapchip.png; sourceTree = "<group>"; };
 		2028ED9B1A824F4700894577 /* OpenWorldQuarterViewRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWorldQuarterViewRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		201953991A98B94900286070 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				2019539A1A98B96C00286070 /* MapConfig.swift */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
 		201AAFEB1A9794BA00BF5FCB /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +227,7 @@
 		2028ED9D1A824F4700894577 /* OpenWorldQuarterViewRPG */ = {
 			isa = PBXGroup;
 			children = (
+				201953991A98B94900286070 /* config */,
 				201AAFEB1A9794BA00BF5FCB /* test */,
 				208C7A371A876F230086DB72 /* delegate */,
 				208C7A331A87666B0086DB72 /* model */,
@@ -492,6 +503,7 @@
 				205EE9771A988291008E569D /* Node.swift in Sources */,
 				208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */,
 				208C7A201A8618AD0086DB72 /* GroundGreen.swift in Sources */,
+				2019539B1A98B96C00286070 /* MapConfig.swift in Sources */,
 				2028EDA71A824F4700894577 /* GameViewController.swift in Sources */,
 				C37132231A919B4C0085F2C0 /* NeighborRoomInfo.swift in Sources */,
 				208C7A251A86198B0086DB72 /* MapUtil.swift in Sources */,

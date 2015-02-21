@@ -26,9 +26,10 @@ internal class RouteUtil
         nodes[start].cost = 0
         //道筋
         var routes:[Int] = [Int]()
+        var reached:Bool = false
         
         //アルゴリズム実行
-        loop: for(var loop:Int = 0; loop < 100 ; loop++)
+        loop: for(var loop:Int = 0; loop < 10000 ; loop++)
         {
             //確定ノードを探す
             var doneNode:Node? = nil //確定ノード
@@ -57,12 +58,16 @@ internal class RouteUtil
             }
             
             //確定フラグを立てる
-            nodes[doneNodeNumber].done = true
-            routes.append(doneNodeNumber)
+            if (doneNodeNumber >= 0)
+            {
+                nodes[doneNodeNumber].done = true
+                routes.append(doneNodeNumber)
+            }
             
             //ゴールに到達していたらループを抜ける
             if (doneNodeNumber == goal)
             {
+                reached = true
                 break loop
             }
             
@@ -78,6 +83,11 @@ internal class RouteUtil
             }
             
         }
+        if (reached == false)
+        {
+            return []
+        }
+        
         return routes
     }
 }
