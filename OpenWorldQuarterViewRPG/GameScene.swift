@@ -12,6 +12,7 @@ class GameScene: SKScene {
     private var mapModel:MapModel!;
     private var uiModel:UIModel!;
     private var myWorld:SKNode = SKNode()
+    private var myUI:SKNode = SKNode()
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         var size:CGSize = view.frame.size
@@ -22,15 +23,19 @@ class GameScene: SKScene {
         myWorld.xScale = 0.15
         myWorld.yScale = 0.15
         
+        myUI.name = "ui"
+        myUI.xScale = 1
+        myUI.yScale = 1
         
         var camera:SKNode = SKNode()
         camera.name = "camera"
         myWorld.addChild(camera)
         
         mapModel = MapModel(node: myWorld)
-        uiModel = UIModel(node: myWorld, scene:self)
+        uiModel = UIModel(node: myWorld, ui:myUI, scene:self)
         
         self.addChild(myWorld)
+        self.addChild(myUI)
     }
     
     deinit {

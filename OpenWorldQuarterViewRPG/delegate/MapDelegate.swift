@@ -8,8 +8,8 @@
 
 import SpriteKit
 
-class MapDelegate {
-    var model:MapModel
+internal class MapDelegate {
+    internal var model:MapModel
     
     init (model:MapModel)
     {
@@ -20,24 +20,34 @@ class MapDelegate {
         
     }
     
-    func getModelNode() -> SKNode
+    internal func getModelNode() -> SKNode
     {
         return self.model.node
     }
     
-    func getModelChipDictionary() -> Dictionary<String, ChipInfo>
+    internal func getModelNodes() -> [Node]
+    {
+        return self.model.nodes
+    }
+    
+    internal func getModelChipDictionary() -> Dictionary<String, ChipInfo>
     {
         return self.model.chipInfoDicionary
     }
     
-    func setModelChipDictionary(let name:String, let info:ChipInfo)
+    internal func setModelChipDictionary(let name:String, let info:ChipInfo)
     {
         self.model.chipInfoDicionary[name] = info
     }
     
-    func setModelStart(start:Int)
+    internal func setModelStart(start:Int)
     {
         self.model.startNo = start
+    }
+    
+    internal func onTouchCursor(direction:Int)
+    {
+        self.model.onTouchCursor(direction)
     }
     
 }

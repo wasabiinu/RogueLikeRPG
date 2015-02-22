@@ -7,12 +7,13 @@
 //
 import SpriteKit
 
-class MapModel {
-    var delegate:MapDelegate!
-    var node:SKNode
-    var nodes:[Node]
-    var startNo:Int
-    var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
+internal class MapModel {
+    internal var delegate:MapDelegate!
+    internal var node:SKNode
+    internal var nodes:[Node]
+    internal var startNo:Int
+    internal var hero:Avatar
+    internal var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
     
     init (node:SKNode)
     {
@@ -20,6 +21,7 @@ class MapModel {
         self.node = node
         self.nodes = [Node]()
         self.startNo = 0
+        self.hero = Sabar()
         
         afterInit()
     }
@@ -29,7 +31,12 @@ class MapModel {
         chipInfoDicionary = Dictionary<String, ChipInfo>()
     }
     
-    func afterInit()
+    internal func onTouchCursor(direction:Int)
+    {
+        MapUtil.moveAvatar(hero, direction:direction)
+    }
+    
+    private func afterInit()
     {
         //デリゲートを作る
         delegate = MapDelegate(model: self)
@@ -40,7 +47,7 @@ class MapModel {
         //Nodeを作る
         nodes = MapUtil.createNode()
         //キャラクターを配置する
-        MapUtil.addAvatar(startNo, avatar:Sabar())
+        MapUtil.addAvatar(startNo, avatar:hero)
         //描画する
         MapUtil.draw()
     }

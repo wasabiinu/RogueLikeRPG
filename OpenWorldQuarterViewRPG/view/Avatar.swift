@@ -13,15 +13,19 @@ import SpriteKit
 internal class Avatar
 {
     internal var spriteNode:SKSpriteNode
+    internal var nodeNo:Int
     init(let imageName:String) {
         var texture:SKTexture = SKTexture(imageNamed: imageName)
         spriteNode = SKSpriteNode(texture: texture)
+        self.nodeNo = 0
     }
     
     func position(no:Int) {
         var gridY:Int = no / Int(MapConfig.AREA_SIZE.width)
         var gridX:Int = no % Int(MapConfig.AREA_SIZE.width)
-        var z:Int = 0
+        var z:Int = -30
+        nodeNo = no
+        spriteNode.zPosition = CGFloat(no * 2 + 1)
         spriteNode.position = CGPointMake(CGFloat(gridX * -16 + gridY * 16), CGFloat((gridX * -12) + (gridY * -12) - z))
     }
 }

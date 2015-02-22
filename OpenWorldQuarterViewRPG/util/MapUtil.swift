@@ -31,6 +31,42 @@ internal class MapUtil {
         self.delegate = delegate
     }
     
+    internal class func onTouchCursor(direction:Int)
+    {
+        delegate.onTouchCursor(direction)
+    }
+    
+    internal class func moveAvatar(avatar:Avatar, direction:Int)
+    {
+        var nodes:[Node] = delegate.getModelNodes()
+        var no:Int = avatar.nodeNo
+        var ary:[Int] = nodes[no].edges_to
+        var moveNodeNo:Int = 0
+        switch (direction)
+        {
+            case 0:
+                moveNodeNo = no + 1
+            break
+            case 1:
+                moveNodeNo = no + Int(MapConfig.AREA_SIZE.width)
+            break
+            case 2:
+                moveNodeNo = no - 1
+            break
+            default :
+                moveNodeNo = no - Int(MapConfig.AREA_SIZE.width)
+            break
+        }
+        
+        for checkNo:Int in ary
+        {
+            if (checkNo == moveNodeNo)
+            {
+                avatar.position(moveNodeNo)
+            }
+        }
+    }
+    
     //受け取ったサイズのレクタングルとタイプでエリアを作って、受け取った親に加えます
     internal class func createRectArea(let rect:CGRect, let type:Int)
     {
@@ -137,12 +173,12 @@ internal class MapUtil {
         var roomArray:[CGRect] = createRooms(rectArray)
         
         //通路を作る
-        createPasseges(roomArray)
+        var startNo:Int = createPasseges(roomArray)
         
         //ランダムに回転させる
         let xRotationNum:UInt32 = Random.random(2)
         let yRotationNum:UInt32 = Random.random(2)
-        rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1)
+        rotateRectangleArea(xRotationNum == 1, yRotation: yRotationNum == 1, startNo: startNo)
     }
     
     //部屋を作って登録する
@@ -176,7 +212,7 @@ internal class MapUtil {
     }
     
     //通路を作って登録する
-    private class func createPasseges(roomArray:[CGRect])
+    private class func createPasseges(roomArray:[CGRect]) -> Int
     {
         //各部屋の接続情報を格納する配列
         var nodes:[Node] = [Node]()
@@ -435,7 +471,7 @@ internal class MapUtil {
         var startNo:Int = Int(startPassageRect.origin.y * MapConfig.AREA_SIZE.width + startPassageRect.origin.x)
         var goalNo:Int = Int(goalPassageRect.origin.y * MapConfig.AREA_SIZE.width + goalPassageRect.origin.x)
         
-        delegate.setModelStart(startNo)
+        return startNo
         
     }
     
@@ -452,9 +488,15 @@ internal class MapUtil {
     }
     
     //作成したマップエリアを回転させる
-    private class func rotateRectangleArea(xRotation:Bool, yRotation:Bool)
+    private class func rotateRectangleArea(xRotation:Bool, yRotation:Bool, startNo:Int)
     {
         println("MapUtil::rotateRectangleArea")
+        
+        var startY:Int = Int(startNo / Int(MapConfig.AREA_SIZE.width))
+        var startX:Int = Int(startNo % Int(MapConfig.AREA_SIZE.width))
+        var _startNo:Int = startNo
+        
+        
         if (xRotation == false && yRotation == false)
         {
             return
@@ -498,6 +540,26 @@ internal class MapUtil {
             }
             y = 0
         }
+        
+        //両回転
+        if (xRotation == true && yRotation == true)
+        {
+            startX = Int(MapConfig.AREA_SIZE.width) - startX - 1
+            startY = Int(MapConfig.AREA_SIZE.height) - startY - 1
+        }
+            //xだけ回転
+        else if(xRotation == true && yRotation == false)
+        {
+            startX = Int(MapConfig.AREA_SIZE.width) - startX - 1
+        }
+            //yだけ回転
+        else if(xRotation == false && yRotation == true)
+        {
+            startY = Int(MapConfig.AREA_SIZE.height) - startY - 1
+        }
+        
+        _startNo = startX + startY * Int(MapConfig.AREA_SIZE.width)
+        delegate.setModelStart(_startNo)
     }
     
     internal class func createNode() -> [Node]

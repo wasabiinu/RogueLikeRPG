@@ -13,6 +13,8 @@
 		201953A41A99A99700286070 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953A31A99A99700286070 /* Avatar.swift */; };
 		201953A61A99D29600286070 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953A51A99D29600286070 /* Human.swift */; };
 		201953A81A99D2BE00286070 /* Sabar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953A71A99D2BE00286070 /* Sabar.swift */; };
+		201953B61A99E35700286070 /* ui.cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = 201953B51A99E35700286070 /* ui.cursor.png */; };
+		201953B91A99E3CF00286070 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953B81A99E3CF00286070 /* Cursor.swift */; };
 		201AAFED1A9794F800BF5FCB /* DijkstraTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AAFEC1A9794F800BF5FCB /* DijkstraTest.swift */; };
 		202148001A839F4400070FA1 /* mapchip.png in Resources */ = {isa = PBXBuildFile; fileRef = 202147FF1A839F4300070FA1 /* mapchip.png */; };
 		2028EDA11A824F4700894577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDA01A824F4700894577 /* AppDelegate.swift */; };
@@ -80,6 +82,8 @@
 		201953A31A99A99700286070 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		201953A51A99D29600286070 /* Human.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 		201953A71A99D2BE00286070 /* Sabar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sabar.swift; sourceTree = "<group>"; };
+		201953B51A99E35700286070 /* ui.cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.cursor.png; sourceTree = "<group>"; };
+		201953B81A99E3CF00286070 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
 		201AAFEC1A9794F800BF5FCB /* DijkstraTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DijkstraTest.swift; sourceTree = "<group>"; };
 		202147FF1A839F4300070FA1 /* mapchip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapchip.png; sourceTree = "<group>"; };
 		2028ED9B1A824F4700894577 /* OpenWorldQuarterViewRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWorldQuarterViewRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +198,30 @@
 			name = avatar;
 			sourceTree = "<group>";
 		};
+		201953B31A99E33100286070 /* uis */ = {
+			isa = PBXGroup;
+			children = (
+				201953B41A99E34200286070 /* cursor */,
+			);
+			path = uis;
+			sourceTree = "<group>";
+		};
+		201953B41A99E34200286070 /* cursor */ = {
+			isa = PBXGroup;
+			children = (
+				201953B51A99E35700286070 /* ui.cursor.png */,
+			);
+			path = cursor;
+			sourceTree = "<group>";
+		};
+		201953B71A99E39F00286070 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				201953B81A99E3CF00286070 /* Cursor.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		201AAFEB1A9794BA00BF5FCB /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +233,7 @@
 		202147FE1A839F2100070FA1 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				201953B31A99E33100286070 /* uis */,
 				2019539C1A99A42F00286070 /* avatar */,
 				202148011A83B5A000070FA1 /* map */,
 			);
@@ -334,6 +363,7 @@
 		208C7A1B1A860A790086DB72 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				201953B71A99E39F00286070 /* ui */,
 				201953A21A99A96800286070 /* avatar */,
 				208C7A1C1A86179F0086DB72 /* map */,
 			);
@@ -516,6 +546,7 @@
 				208C7A2B1A864F5D0086DB72 /* ground.rectcheck.4.png in Resources */,
 				2080E2761A83D69400ED0780 /* ground.green.4.png in Resources */,
 				2028EDA31A824F4700894577 /* GameScene.sks in Resources */,
+				201953B61A99E35700286070 /* ui.cursor.png in Resources */,
 				2028EDAA1A824F4700894577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +578,7 @@
 				201AAFED1A9794F800BF5FCB /* DijkstraTest.swift in Sources */,
 				208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */,
 				201953A81A99D2BE00286070 /* Sabar.swift in Sources */,
+				201953B91A99E3CF00286070 /* Cursor.swift in Sources */,
 				206430D51A90FF2500A52BBC /* Random.swift in Sources */,
 				205EE9771A988291008E569D /* Node.swift in Sources */,
 				208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */,
