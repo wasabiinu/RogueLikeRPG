@@ -20,8 +20,8 @@ class GameScene: SKScene {
         self.backgroundColor = UIColor(red:0.15, green:0.15, blue:0.3, alpha:1.0)
         self.anchorPoint = CGPointMake(0.5, 1)
         myWorld.name = "world"
-        myWorld.xScale = 0.15
-        myWorld.yScale = 0.15
+        myWorld.xScale = 1
+        myWorld.yScale = 1
         
         myUI.name = "ui"
         myUI.xScale = 1
@@ -31,7 +31,7 @@ class GameScene: SKScene {
         camera.name = "camera"
         myWorld.addChild(camera)
         
-        mapModel = MapModel(node: myWorld)
+        mapModel = MapModel(node: myWorld, scene:self)
         uiModel = UIModel(node: myWorld, ui:myUI, scene:self)
         
         self.addChild(myWorld)

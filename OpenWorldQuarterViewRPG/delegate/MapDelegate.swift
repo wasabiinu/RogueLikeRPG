@@ -25,9 +25,19 @@ internal class MapDelegate {
         return self.model.node
     }
     
+    internal func getModelScene() -> SKNode
+    {
+        return self.model.scene
+    }
+    
     internal func getModelNodes() -> [Node]
     {
         return self.model.nodes
+    }
+    
+    internal func getModelHero() -> Avatar
+    {
+        return self.model.hero
     }
     
     internal func getModelChipDictionary() -> Dictionary<String, ChipInfo>

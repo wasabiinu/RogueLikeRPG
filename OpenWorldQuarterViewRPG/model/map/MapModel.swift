@@ -10,18 +10,20 @@ import SpriteKit
 internal class MapModel {
     internal var delegate:MapDelegate!
     internal var node:SKNode
+    internal var scene:SKNode
     internal var nodes:[Node]
     internal var startNo:Int
     internal var hero:Avatar
     internal var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
     
-    init (node:SKNode)
+    init (node:SKNode, scene:SKNode)
     {
         println("MapModel::init")
         self.node = node
         self.nodes = [Node]()
         self.startNo = 0
         self.hero = Sabar()
+        self.scene = scene
         
         afterInit()
     }
@@ -50,5 +52,7 @@ internal class MapModel {
         MapUtil.addAvatar(startNo, avatar:hero)
         //描画する
         MapUtil.draw()
+        //カメラを主人公の位置に移動させる
+        MapUtil.onTouchCursor(-1)
     }
 }

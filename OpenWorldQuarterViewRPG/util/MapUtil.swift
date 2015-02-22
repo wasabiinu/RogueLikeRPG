@@ -31,9 +31,19 @@ internal class MapUtil {
         self.delegate = delegate
     }
     
+    internal class func centerOnAvatar(avatar:Avatar, scene:SKNode) {
+        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+        var cameraPositionInScene:CGPoint = scene.convertPoint(avatar.spriteNode.position, fromNode: delegate.getModelNode())
+        delegate.getModelNode().position = CGPointMake(delegate.getModelNode().position.x - cameraPositionInScene.x, delegate.getModelNode().position.y - cameraPositionInScene.y - (myBoundSize.height / 2))
+    }
+    
     internal class func onTouchCursor(direction:Int)
     {
-        delegate.onTouchCursor(direction)
+        if (direction >= 0)
+        {
+            delegate.onTouchCursor(direction)
+        }
+        centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene())
     }
     
     internal class func moveAvatar(avatar:Avatar, direction:Int)
