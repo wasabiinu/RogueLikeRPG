@@ -31,10 +31,28 @@ internal class MapUtil {
         self.delegate = delegate
     }
     
-    internal class func centerOnAvatar(avatar:Avatar, scene:SKNode) {
+    internal class func centerOnAvatar(avatar:Avatar, scene:SKNode, immidiate:Bool) {
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
         var cameraPositionInScene:CGPoint = scene.convertPoint(avatar.spriteNode.position, fromNode: delegate.getModelNode())
-        delegate.getModelNode().position = CGPointMake(delegate.getModelNode().position.x - cameraPositionInScene.x, delegate.getModelNode().position.y - cameraPositionInScene.y - (myBoundSize.height / 2))
+        
+        var oldX:CGFloat = delegate.getModelNode().position.x
+        var oldY:CGFloat = delegate.getModelNode().position.y
+        
+        var newX:CGFloat = delegate.getModelNode().position.x - cameraPositionInScene.x
+        var newY:CGFloat = delegate.getModelNode().position.y - cameraPositionInScene.y - (myBoundSize.height / 2)
+        
+        var diffX:CGFloat = newX - oldX
+        var diffY:CGFloat = newY - oldY
+        
+        if (immidiate == true)
+        {
+            self.delegate.getModelNode().position = CGPointMake(newX, newY)
+        }
+        else{
+            AloeTween.doTween(0.4, ease: AloeEase.None, progress: { (val) -> () in
+                self.delegate.getModelNode().position = CGPointMake(oldX + diffX * val, oldY + diffY * val)
+            })
+        }
     }
     
     internal class func onTouchCursor(direction:Int)
@@ -43,7 +61,7 @@ internal class MapUtil {
         {
             delegate.onTouchCursor(direction)
         }
-        centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene())
+        centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene(), immidiate: direction == -1)
     }
     
     internal class func moveAvatar(avatar:Avatar, direction:Int)
@@ -72,7 +90,7 @@ internal class MapUtil {
         {
             if (checkNo == moveNodeNo)
             {
-                avatar.position(moveNodeNo)
+                avatar.position(moveNodeNo, direction:direction)
             }
         }
     }
@@ -109,7 +127,7 @@ internal class MapUtil {
     
     internal class func addAvatar(no:Int, avatar:Avatar)
     {
-        avatar.position(no)
+        avatar.position(no, direction: -1, immidiate: true )
         avatar.spriteNode.zPosition = CGFloat(no * 2 + 1)
         self.delegate.getModelNode().addChild(avatar.spriteNode)
     }

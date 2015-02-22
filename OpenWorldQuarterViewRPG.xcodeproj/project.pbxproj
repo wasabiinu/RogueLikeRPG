@@ -15,6 +15,12 @@
 		201953A81A99D2BE00286070 /* Sabar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953A71A99D2BE00286070 /* Sabar.swift */; };
 		201953B61A99E35700286070 /* ui.cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = 201953B51A99E35700286070 /* ui.cursor.png */; };
 		201953B91A99E3CF00286070 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953B81A99E3CF00286070 /* Cursor.swift */; };
+		201953BD1A9A21C200286070 /* AloeEase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953BC1A9A21C200286070 /* AloeEase.swift */; };
+		201953C01A9A220100286070 /* AloeTween.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953BF1A9A220100286070 /* AloeTween.swift */; };
+		201953C21A9A224800286070 /* Tween.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201953C11A9A224800286070 /* Tween.swift */; };
+		201953C61A9A2B4000286070 /* avatar.human.saber.walk.0.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 201953C31A9A2B4000286070 /* avatar.human.saber.walk.0.0.png */; };
+		201953C71A9A2B4000286070 /* avatar.human.saber.walk.0.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 201953C41A9A2B4000286070 /* avatar.human.saber.walk.0.1.png */; };
+		201953C81A9A2B4000286070 /* avatar.human.saber.walk.0.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 201953C51A9A2B4000286070 /* avatar.human.saber.walk.0.2.png */; };
 		201AAFED1A9794F800BF5FCB /* DijkstraTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AAFEC1A9794F800BF5FCB /* DijkstraTest.swift */; };
 		202148001A839F4400070FA1 /* mapchip.png in Resources */ = {isa = PBXBuildFile; fileRef = 202147FF1A839F4300070FA1 /* mapchip.png */; };
 		2028EDA11A824F4700894577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028EDA01A824F4700894577 /* AppDelegate.swift */; };
@@ -58,6 +64,9 @@
 		208C7A361A8766850086DB72 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A351A8766850086DB72 /* MapModel.swift */; };
 		208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A381A876F7D0086DB72 /* MapDelegate.swift */; };
 		208C7A3B1A87B1FB0086DB72 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */; };
+		208F793B1A9A338200D71927 /* avatar.human.saber.walk.2.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 208F79381A9A338200D71927 /* avatar.human.saber.walk.2.0.png */; };
+		208F793C1A9A338200D71927 /* avatar.human.saber.walk.2.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 208F79391A9A338200D71927 /* avatar.human.saber.walk.2.1.png */; };
+		208F793D1A9A338200D71927 /* avatar.human.saber.walk.2.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 208F793A1A9A338200D71927 /* avatar.human.saber.walk.2.2.png */; };
 		C37132231A919B4C0085F2C0 /* NeighborRoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37132211A919B4C0085F2C0 /* NeighborRoomInfo.swift */; };
 		C37132241A919B4C0085F2C0 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37132221A919B4C0085F2C0 /* RoomInfo.swift */; };
 		C3CFE8971A92F59500404006 /* HashableRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CFE8961A92F59500404006 /* HashableRect.swift */; };
@@ -84,6 +93,12 @@
 		201953A71A99D2BE00286070 /* Sabar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sabar.swift; sourceTree = "<group>"; };
 		201953B51A99E35700286070 /* ui.cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.cursor.png; sourceTree = "<group>"; };
 		201953B81A99E3CF00286070 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
+		201953BC1A9A21C200286070 /* AloeEase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AloeEase.swift; sourceTree = "<group>"; };
+		201953BF1A9A220100286070 /* AloeTween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AloeTween.swift; sourceTree = "<group>"; };
+		201953C11A9A224800286070 /* Tween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tween.swift; sourceTree = "<group>"; };
+		201953C31A9A2B4000286070 /* avatar.human.saber.walk.0.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.human.saber.walk.0.0.png; sourceTree = "<group>"; };
+		201953C41A9A2B4000286070 /* avatar.human.saber.walk.0.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.human.saber.walk.0.1.png; sourceTree = "<group>"; };
+		201953C51A9A2B4000286070 /* avatar.human.saber.walk.0.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.human.saber.walk.0.2.png; sourceTree = "<group>"; };
 		201AAFEC1A9794F800BF5FCB /* DijkstraTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DijkstraTest.swift; sourceTree = "<group>"; };
 		202147FF1A839F4300070FA1 /* mapchip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapchip.png; sourceTree = "<group>"; };
 		2028ED9B1A824F4700894577 /* OpenWorldQuarterViewRPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWorldQuarterViewRPG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +146,9 @@
 		208C7A351A8766850086DB72 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		208C7A381A876F7D0086DB72 /* MapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
 		208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
+		208F79381A9A338200D71927 /* avatar.human.saber.walk.2.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.human.saber.walk.2.0.png; sourceTree = "<group>"; };
+		208F79391A9A338200D71927 /* avatar.human.saber.walk.2.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.human.saber.walk.2.1.png; sourceTree = "<group>"; };
+		208F793A1A9A338200D71927 /* avatar.human.saber.walk.2.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.human.saber.walk.2.2.png; sourceTree = "<group>"; };
 		C37132211A919B4C0085F2C0 /* NeighborRoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborRoomInfo.swift; sourceTree = "<group>"; };
 		C37132221A919B4C0085F2C0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
 		C3CFE8961A92F59500404006 /* HashableRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableRect.swift; sourceTree = "<group>"; };
@@ -183,6 +201,12 @@
 		2019539F1A99A89500286070 /* sabar */ = {
 			isa = PBXGroup;
 			children = (
+				208F79381A9A338200D71927 /* avatar.human.saber.walk.2.0.png */,
+				208F79391A9A338200D71927 /* avatar.human.saber.walk.2.1.png */,
+				208F793A1A9A338200D71927 /* avatar.human.saber.walk.2.2.png */,
+				201953C31A9A2B4000286070 /* avatar.human.saber.walk.0.0.png */,
+				201953C41A9A2B4000286070 /* avatar.human.saber.walk.0.1.png */,
+				201953C51A9A2B4000286070 /* avatar.human.saber.walk.0.2.png */,
 				201953A01A99A8A900286070 /* avatar.human.saber.default.png */,
 			);
 			path = sabar;
@@ -220,6 +244,23 @@
 				201953B81A99E3CF00286070 /* Cursor.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		201953BA1A9A216D00286070 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				201953BB1A9A218200286070 /* tween */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		201953BB1A9A218200286070 /* tween */ = {
+			isa = PBXGroup;
+			children = (
+				201953BC1A9A21C200286070 /* AloeEase.swift */,
+				201953BF1A9A220100286070 /* AloeTween.swift */,
+			);
+			path = tween;
 			sourceTree = "<group>";
 		};
 		201AAFEB1A9794BA00BF5FCB /* test */ = {
@@ -299,6 +340,7 @@
 		2028ED9D1A824F4700894577 /* OpenWorldQuarterViewRPG */ = {
 			isa = PBXGroup;
 			children = (
+				201953BA1A9A216D00286070 /* lib */,
 				201953991A98B94900286070 /* config */,
 				201AAFEB1A9794BA00BF5FCB /* test */,
 				208C7A371A876F230086DB72 /* delegate */,
@@ -387,6 +429,7 @@
 				208C7A3A1A87B1FB0086DB72 /* UIUtil.swift */,
 				206430D41A90FF2500A52BBC /* Random.swift */,
 				201953971A988A0200286070 /* RouteUtil.swift */,
+				201953C11A9A224800286070 /* Tween.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -519,6 +562,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				201953C61A9A2B4000286070 /* avatar.human.saber.walk.0.0.png in Resources */,
 				208C7A2F1A864F5D0086DB72 /* ground.rectcheck.8.png in Resources */,
 				2080E2751A83D69400ED0780 /* ground.green.3.png in Resources */,
 				2028EDAF1A824F4700894577 /* LaunchScreen.xib in Resources */,
@@ -532,8 +576,10 @@
 				2080E26D1A83D68900ED0780 /* ground.green.2.png in Resources */,
 				2080E27A1A83D69400ED0780 /* ground.green.8.png in Resources */,
 				208C7A171A85F25A0086DB72 /* ground.rectcheck.0.png in Resources */,
+				201953C81A9A2B4000286070 /* avatar.human.saber.walk.0.2.png in Resources */,
 				208C7A2E1A864F5D0086DB72 /* ground.rectcheck.7.png in Resources */,
 				2080E26C1A83D68900ED0780 /* ground.green.1.png in Resources */,
+				208F793C1A9A338200D71927 /* avatar.human.saber.walk.2.1.png in Resources */,
 				208C7A0D1A85F0F10086DB72 /* ground.green.10.png in Resources */,
 				202148001A839F4400070FA1 /* mapchip.png in Resources */,
 				2080E2791A83D69400ED0780 /* ground.green.7.png in Resources */,
@@ -546,8 +592,11 @@
 				208C7A2B1A864F5D0086DB72 /* ground.rectcheck.4.png in Resources */,
 				2080E2761A83D69400ED0780 /* ground.green.4.png in Resources */,
 				2028EDA31A824F4700894577 /* GameScene.sks in Resources */,
+				208F793B1A9A338200D71927 /* avatar.human.saber.walk.2.0.png in Resources */,
 				201953B61A99E35700286070 /* ui.cursor.png in Resources */,
+				208F793D1A9A338200D71927 /* avatar.human.saber.walk.2.2.png in Resources */,
 				2028EDAA1A824F4700894577 /* Main.storyboard in Resources */,
+				201953C71A9A2B4000286070 /* avatar.human.saber.walk.0.1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,10 +616,12 @@
 			files = (
 				2028EDA51A824F4700894577 /* GameScene.swift in Sources */,
 				207592C91A923538003935B2 /* Passage.swift in Sources */,
+				201953C01A9A220100286070 /* AloeTween.swift in Sources */,
 				C3E1660C1A8C590800B9CAAC /* UIDelegate.swift in Sources */,
 				C37132241A919B4C0085F2C0 /* RoomInfo.swift in Sources */,
 				C3CFE8971A92F59500404006 /* HashableRect.swift in Sources */,
 				208C7A361A8766850086DB72 /* MapModel.swift in Sources */,
+				201953BD1A9A21C200286070 /* AloeEase.swift in Sources */,
 				208C7A321A8765C30086DB72 /* ChipInfo.swift in Sources */,
 				201953A61A99D29600286070 /* Human.swift in Sources */,
 				201953A41A99A99700286070 /* Avatar.swift in Sources */,
@@ -579,6 +630,7 @@
 				208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */,
 				201953A81A99D2BE00286070 /* Sabar.swift in Sources */,
 				201953B91A99E3CF00286070 /* Cursor.swift in Sources */,
+				201953C21A9A224800286070 /* Tween.swift in Sources */,
 				206430D51A90FF2500A52BBC /* Random.swift in Sources */,
 				205EE9771A988291008E569D /* Node.swift in Sources */,
 				208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */,
