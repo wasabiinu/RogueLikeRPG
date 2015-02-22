@@ -499,6 +499,7 @@ internal class MapUtil {
         
         if (xRotation == false && yRotation == false)
         {
+            delegate.setModelStart(_startNo)
             return
         }
         
