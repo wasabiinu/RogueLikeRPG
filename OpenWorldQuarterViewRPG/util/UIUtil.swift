@@ -120,12 +120,14 @@ class UIUtil {
                     println("pinchOut")
                     delegate.getModelNode().xScale *= 1.02
                     delegate.getModelNode().yScale *= 1.02
+                    MapUtil.onTouchCursor(-1)
                 }
                 else if (pinchRect.size.width * pinchRect.size.height > endRect.size.width * endRect.size.height)
                 {
                     println("pinchIn")
                     delegate.getModelNode().xScale /= 1.02
                     delegate.getModelNode().yScale /= 1.02
+                    MapUtil.onTouchCursor(-1)
                 }
                 //centerOnNode(myWorld)
             }
