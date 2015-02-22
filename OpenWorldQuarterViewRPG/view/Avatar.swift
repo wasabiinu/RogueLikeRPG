@@ -17,13 +17,15 @@ internal class Avatar
     init(let imageName:String) {
         var texture:SKTexture = SKTexture(imageNamed: imageName)
         spriteNode = SKSpriteNode(texture: texture)
+        spriteNode.xScale = 0.5
+        spriteNode.yScale = 0.5
         self.nodeNo = 0
     }
     
     func position(no:Int) {
         var gridY:Int = no / Int(MapConfig.AREA_SIZE.width)
         var gridX:Int = no % Int(MapConfig.AREA_SIZE.width)
-        var z:Int = -30
+        var z:Int = -19
         nodeNo = no
         spriteNode.zPosition = CGFloat(no * 2 + 1)
         spriteNode.position = CGPointMake(CGFloat(gridX * -16 + gridY * 16), CGFloat((gridX * -12) + (gridY * -12) - z))

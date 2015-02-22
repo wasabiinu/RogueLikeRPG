@@ -20,8 +20,8 @@ class GameScene: SKScene {
         self.backgroundColor = UIColor(red:0.15, green:0.15, blue:0.3, alpha:1.0)
         self.anchorPoint = CGPointMake(0.5, 1)
         myWorld.name = "world"
-        myWorld.xScale = 1
-        myWorld.yScale = 1
+        myWorld.xScale = 1.5
+        myWorld.yScale = 1.5
         
         myUI.name = "ui"
         myUI.xScale = 1
@@ -36,6 +36,7 @@ class GameScene: SKScene {
         
         self.addChild(myWorld)
         self.addChild(myUI)
+        MapUtil.onTouchCursor(-1)
     }
     
     deinit {
