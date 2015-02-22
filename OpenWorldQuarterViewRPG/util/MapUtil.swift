@@ -44,7 +44,7 @@ internal class MapUtil {
             {
                 var groundChip:MapChip = RectTestChip(num:type)
                 groundChip.position(x, gridY: y, z: 0)
-                self.delegate.getModelNode().addChild(groundChip.node)
+                self.delegate.getModelNode().addChild(groundChip.spriteNode)
             }
         }
     }
@@ -57,8 +57,15 @@ internal class MapUtil {
             z -= 14;
         }
         groundChip.position(gridX, gridY: gridY, z: z)
-        groundChip.node.zPosition = zPosition
-        self.delegate.getModelNode().addChild(groundChip.node)
+        groundChip.spriteNode.zPosition = zPosition
+        self.delegate.getModelNode().addChild(groundChip.spriteNode)
+    }
+    
+    internal class func addAvatar(no:Int, avatar:Avatar)
+    {
+        avatar.position(no)
+        avatar.spriteNode.zPosition = CGFloat(no * 2 + 1)
+        self.delegate.getModelNode().addChild(avatar.spriteNode)
     }
     
     //レクタングルを縦横どちらかランダムに2分割して返します
@@ -424,6 +431,12 @@ internal class MapUtil {
         goalPassageRect = CGRectMake(goalPassageRect.origin.x, goalPassageRect.origin.y + 1, goalPassageRect.size.width, goalPassageRect.size.height - 1)
         registChipInfo(goalPassageRect, type: 4, moovable: true)
         
+        
+        var startNo:Int = Int(startPassageRect.origin.y * MapConfig.AREA_SIZE.width + startPassageRect.origin.x)
+        var goalNo:Int = Int(goalPassageRect.origin.y * MapConfig.AREA_SIZE.width + goalPassageRect.origin.x)
+        
+        delegate.setModelStart(startNo)
+        
     }
     
     //レクタングルをDictionaryに登録する
@@ -485,7 +498,93 @@ internal class MapUtil {
             }
             y = 0
         }
+    }
+    
+    internal class func createNode() -> [Node]
+    {
+        var dictionary:Dictionary<String, ChipInfo> = self.delegate.getModelChipDictionary()
+        println("MapUtil::createNode")
+        var gridX:Int = 0
+        var gridY:Int = 0
+        var nodes:[Node] = [Node]()
+        while((dictionary["\(gridX),\(gridY)"]) != nil)
+        {
+            while(dictionary["\(gridX),\(gridY)"] != nil)
+            {
+                nodes.append(Node(edges_to: [], edges_cost: [], passages: []))
+                gridX++
+            }
+            gridX = 0
+            gridY++
+        }
         
+        gridX = 0
+        gridY = 0
+        
+        while((dictionary["\(gridX),\(gridY)"]) != nil)
+        {
+            while(dictionary["\(gridX),\(gridY)"] != nil)
+            {
+                var costs:[Int] = [Int]()
+                var tos:[Int] = [Int]()
+                var no:Int = 0
+                var info:ChipInfo!
+                
+                //左下
+                if(dictionary["\(gridX + 1),\(gridY)"] != nil)
+                {
+                    info = dictionary["\(gridX + 1),\(gridY)"]
+                    if (info.movable == true)
+                    {
+                        no = gridY * Int(MapConfig.AREA_SIZE.width) + gridX + 1
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
+                //右下
+                if(dictionary["\(gridX),\(gridY + 1)"] != nil)
+                {
+                    info = dictionary["\(gridX),\(gridY + 1)"]
+                    if (info.movable == true)
+                    {
+                        no = (gridY + 1) * Int(MapConfig.AREA_SIZE.width) + gridX
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
+                //右上
+                if(dictionary["\(gridX - 1),\(gridY)"] != nil)
+                {
+                    info = dictionary["\(gridX - 1),\(gridY)"]
+                    if (info.movable == true)
+                    {
+                        no = Int(gridY) * Int(MapConfig.AREA_SIZE.width) + Int(gridX) - 1
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
+                //左上
+                if(dictionary["\(gridX),\(gridY - 1)"] != nil)
+                {
+                    info = dictionary["\(gridX),\(gridY - 1)"]
+                    if (info.movable == true)
+                    {
+                        no = (Int(gridY) - 1) * Int(MapConfig.AREA_SIZE.width) + Int(gridX)
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
+                
+                no = Int(gridY) * Int(MapConfig.AREA_SIZE.width) + Int(gridX)
+                var node:Node = Node(edges_to: tos, edges_cost: costs, passages: [])
+                nodes[no] = node
+                
+                gridX++
+            }
+            gridX = 0
+            gridY++
+        }
+        return nodes
     }
     
     internal class func draw()
@@ -500,10 +599,10 @@ internal class MapUtil {
             while(dictionary["\(gridX),\(gridY)"] != nil)
             {
                 addChip(gridX, gridY: gridY, z: 0, info: dictionary["\(gridX),\(gridY)"]!, zPosition:zPosition)
-                zPosition++
+                zPosition += 2
                 gridX++
             }
-            gridX = 0;
+            gridX = 0
             gridY++
         }
         

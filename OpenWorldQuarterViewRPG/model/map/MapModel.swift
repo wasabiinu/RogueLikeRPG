@@ -10,12 +10,16 @@ import SpriteKit
 class MapModel {
     var delegate:MapDelegate!
     var node:SKNode
+    var nodes:[Node]
+    var startNo:Int
     var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
     
     init (node:SKNode)
     {
         println("MapModel::init")
         self.node = node
+        self.nodes = [Node]()
+        self.startNo = 0
         
         afterInit()
     }
@@ -33,6 +37,10 @@ class MapModel {
         MapUtil.setDelegate(delegate)
         //マップを2分割法で作成する
         MapUtil.repeatSplitRectangle()
+        //Nodeを作る
+        nodes = MapUtil.createNode()
+        //キャラクターを配置する
+        MapUtil.addAvatar(startNo, avatar:Sabar())
         //描画する
         MapUtil.draw()
     }

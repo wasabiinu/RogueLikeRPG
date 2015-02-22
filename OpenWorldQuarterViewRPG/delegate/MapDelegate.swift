@@ -35,5 +35,9 @@ class MapDelegate {
         self.model.chipInfoDicionary[name] = info
     }
     
+    func setModelStart(start:Int)
+    {
+        self.model.startNo = start
+    }
     
 }
