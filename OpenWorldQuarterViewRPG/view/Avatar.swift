@@ -77,10 +77,21 @@ internal class Avatar
         {
             AloeTween.doTween(0.4, ease: AloeEase.None, progress: { (val) -> () in
                 self.spriteNode.position = CGPointMake(oldX + diffX * val, oldY + diffY * val)
-                if( val >= 0.5)
+                if (direction >= 2)
                 {
-                    self.spriteNode.zPosition = CGFloat(no * 2 + 1)
+                    if( val >= 1)
+                    {
+                        self.spriteNode.zPosition = CGFloat(no * 2 + 1)
+                    }
                 }
+                else
+                {
+                    if( val >= 0.1)
+                    {
+                        self.spriteNode.zPosition = CGFloat(no * 2 + 1)
+                    }
+                }
+                
             })
             spriteNode.runAction(walk)
         }
