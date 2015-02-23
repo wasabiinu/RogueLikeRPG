@@ -76,13 +76,25 @@ internal class MapUtil {
                 moveNodeNo = no + 1
             break
             case 1:
-                moveNodeNo = no + Int(MapConfig.AREA_SIZE.width)
+                moveNodeNo = no + Int(MapConfig.AREA_SIZE.width) + 1
             break
             case 2:
+                moveNodeNo = no + Int(MapConfig.AREA_SIZE.width)
+            break
+            case 3:
+                moveNodeNo = no + Int(MapConfig.AREA_SIZE.width) - 1
+            break
+            case 4:
                 moveNodeNo = no - 1
             break
-            default :
+            case 5:
+                moveNodeNo = no - Int(MapConfig.AREA_SIZE.width) - 1
+            break
+            case 6:
                 moveNodeNo = no - Int(MapConfig.AREA_SIZE.width)
+            break
+            default :
+                moveNodeNo = no - Int(MapConfig.AREA_SIZE.width) + 1
             break
         }
         

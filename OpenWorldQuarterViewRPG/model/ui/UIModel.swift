@@ -55,7 +55,7 @@ class UIModel {
         
         var downButton:Cursor = Cursor()
         downButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 2
-        downButton.spriteNode.name = "left"
+        downButton.spriteNode.name = "down"
         downButton.spriteNode.zRotation = CGFloat(180.0 * M_PI / 180.0)
         downButton.spriteNode.position = CGPoint(x: -225, y: -375)
         
@@ -104,11 +104,8 @@ class UIModel {
             
             var node:SKNode! = scene.nodeAtPoint(location);
             if(node != nil){
-                if (node.name == "up")
-                {
-                    MapUtil.onTouchCursor(3)
-                }
-                else if(node.name == "left")
+                
+                if(node.name == "leftdown")
                 {
                     MapUtil.onTouchCursor(0)
                 }
@@ -116,9 +113,29 @@ class UIModel {
                 {
                     MapUtil.onTouchCursor(1)
                 }
-                else if(node.name == "right")
+                else if(node.name == "rightdown")
                 {
                     MapUtil.onTouchCursor(2)
+                }
+                else if(node.name == "right")
+                {
+                    MapUtil.onTouchCursor(3)
+                }
+                else if(node.name == "rightup")
+                {
+                    MapUtil.onTouchCursor(4)
+                }
+                else if(node.name == "up")
+                {
+                    MapUtil.onTouchCursor(5)
+                }
+                else if (node.name == "leftup")
+                {
+                    MapUtil.onTouchCursor(6)
+                }
+                else if (node.name == "left")
+                {
+                    MapUtil.onTouchCursor(7)
                 }
                 
             }
