@@ -738,8 +738,6 @@ internal class MapUtil {
                 var node:Node = Node(edges_to: tos, edges_cost: costs, passages: [])
                 nodes[no] = node
                 
-                println(tos)
-                
                 gridX++
             }
             gridX = 0
