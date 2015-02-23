@@ -35,36 +35,63 @@ class UIModel {
         UIUtil.setDelegate(delegate)
         
         //コントローラーを作る
-        var upButton:Cursor = Cursor()
-        upButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 1
-        upButton.spriteNode.name = "up"
-        upButton.spriteNode.zRotation = CGFloat(45.0 * M_PI / 180.0)
-        upButton.spriteNode.position = CGPoint(x: -250, y: -300)
+        var leftupButton:Cursor = Cursor()
+        leftupButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 1
+        leftupButton.spriteNode.name = "leftup"
+        leftupButton.spriteNode.zRotation = CGFloat(45.0 * M_PI / 180.0)
+        leftupButton.spriteNode.position = CGPoint(x: -250, y: -300)
         
         var leftButton:Cursor = Cursor()
-        leftButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 2
+        leftButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 1
         leftButton.spriteNode.name = "left"
-        leftButton.spriteNode.zRotation = CGFloat(135.0 * M_PI / 180.0)
-        leftButton.spriteNode.position = CGPoint(x: -250, y: -350)
+        leftButton.spriteNode.zRotation = CGFloat(90 * M_PI / 180.0)
+        leftButton.spriteNode.position = CGPoint(x: -275, y: -325)
+        
+        var leftdownButton:Cursor = Cursor()
+        leftdownButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 2
+        leftdownButton.spriteNode.name = "leftdown"
+        leftdownButton.spriteNode.zRotation = CGFloat(135.0 * M_PI / 180.0)
+        leftdownButton.spriteNode.position = CGPoint(x: -250, y: -350)
         
         var downButton:Cursor = Cursor()
-        downButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 3
-        downButton.spriteNode.name = "down"
-        downButton.spriteNode.zRotation = CGFloat(225.0 * M_PI / 180.0)
-        downButton.spriteNode.position = CGPoint(x: -200, y: -350)
+        downButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 2
+        downButton.spriteNode.name = "left"
+        downButton.spriteNode.zRotation = CGFloat(180.0 * M_PI / 180.0)
+        downButton.spriteNode.position = CGPoint(x: -225, y: -375)
+        
+        var rightdownButton:Cursor = Cursor()
+        rightdownButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 3
+        rightdownButton.spriteNode.name = "rightdown"
+        rightdownButton.spriteNode.zRotation = CGFloat(225.0 * M_PI / 180.0)
+        rightdownButton.spriteNode.position = CGPoint(x: -200, y: -350)
         
         var rightButton:Cursor = Cursor()
         rightButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 3
         rightButton.spriteNode.name = "right"
-        rightButton.spriteNode.zRotation = CGFloat(315.0 * M_PI / 180.0)
-        rightButton.spriteNode.position = CGPoint(x: -200, y: -300)
+        rightButton.spriteNode.zRotation = CGFloat(270.0 * M_PI / 180.0)
+        rightButton.spriteNode.position = CGPoint(x: -175, y: -325)
+        
+        var rightupButton:Cursor = Cursor()
+        rightupButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 3
+        rightupButton.spriteNode.name = "rightup"
+        rightupButton.spriteNode.zRotation = CGFloat(315.0 * M_PI / 180.0)
+        rightupButton.spriteNode.position = CGPoint(x: -200, y: -300)
+        
+        var upButton:Cursor = Cursor()
+        upButton.spriteNode.zPosition = MapConfig.AREA_SIZE.width * MapConfig.AREA_SIZE.height * 3 + 3
+        upButton.spriteNode.name = "up"
+        upButton.spriteNode.position = CGPoint(x: -225, y: -275)
         
        
-        
-        ui.addChild(upButton.spriteNode)
         ui.addChild(leftButton.spriteNode)
-        ui.addChild(rightButton.spriteNode)
         ui.addChild(downButton.spriteNode)
+        ui.addChild(rightButton.spriteNode)
+        ui.addChild(upButton.spriteNode)
+        
+        ui.addChild(leftupButton.spriteNode)
+        ui.addChild(leftdownButton.spriteNode)
+        ui.addChild(rightupButton.spriteNode)
+        ui.addChild(rightdownButton.spriteNode)
     }
     
     internal func touchesBegan(touches: NSSet) {
