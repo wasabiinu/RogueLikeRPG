@@ -598,6 +598,7 @@ internal class MapUtil {
         var gridX:Int = 0
         var gridY:Int = 0
         var nodes:[Node] = [Node]()
+        //配列を初期化
         while((dictionary["\(gridX),\(gridY)"]) != nil)
         {
             while(dictionary["\(gridX),\(gridY)"] != nil)
@@ -620,6 +621,8 @@ internal class MapUtil {
                 var tos:[Int] = [Int]()
                 var no:Int = 0
                 var info:ChipInfo!
+                var infoPinch1:ChipInfo!
+                var infoPinch2:ChipInfo!
                 
                 //左下
                 if(dictionary["\(gridX + 1),\(gridY)"] != nil)
@@ -628,6 +631,20 @@ internal class MapUtil {
                     if (info.movable == true)
                     {
                         no = gridY * Int(MapConfig.AREA_SIZE.width) + gridX + 1
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
+                //下
+                if(dictionary["\(gridX + 1),\(gridY)"] != nil && dictionary["\(gridX),\(gridY + 1)"] != nil && dictionary["\(gridX + 1),\(gridY + 1)"] != nil)
+                {
+                    info = dictionary["\(gridX + 1),\(gridY + 1)"]
+                    infoPinch1 = dictionary["\(gridX + 1),\(gridY)"]
+                    infoPinch2 = dictionary["\(gridX),\(gridY + 1)"]
+                    
+                    if (info.movable == true && infoPinch1.movable == true && infoPinch2.movable == true)
+                    {
+                        no = (gridY + 1) * Int(MapConfig.AREA_SIZE.width) + gridX + 1
                         tos.append(no)
                         costs.append(1)
                     }
@@ -643,6 +660,19 @@ internal class MapUtil {
                         costs.append(1)
                     }
                 }
+                //右
+                if(dictionary["\(gridX),\(gridY + 1)"] != nil && dictionary["\(gridX - 1),\(gridY)"] != nil && dictionary["\(gridX - 1),\(gridY + 1)"] != nil)
+                {
+                    info = dictionary["\(gridX - 1),\(gridY + 1)"]
+                    infoPinch1 = dictionary["\(gridX),\(gridY + 1)"]
+                    infoPinch2 = dictionary["\(gridX - 1),\(gridY)"]
+                    if (info.movable == true && infoPinch1.movable == true && infoPinch2.movable == true)
+                    {
+                        no = (gridY + 1) * Int(MapConfig.AREA_SIZE.width) + gridX - 1
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
                 //右上
                 if(dictionary["\(gridX - 1),\(gridY)"] != nil)
                 {
@@ -650,6 +680,19 @@ internal class MapUtil {
                     if (info.movable == true)
                     {
                         no = Int(gridY) * Int(MapConfig.AREA_SIZE.width) + Int(gridX) - 1
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
+                //上
+                if(dictionary["\(gridX - 1),\(gridY)"] != nil && dictionary["\(gridX),\(gridY - 1)"] != nil && dictionary["\(gridX - 1),\(gridY - 1)"] != nil)
+                {
+                    info = dictionary["\(gridX - 1),\(gridY - 1)"]
+                    infoPinch1 = dictionary["\(gridX - 1),\(gridY)"]
+                    infoPinch2 = dictionary["\(gridX),\(gridY - 1)"]
+                    if (info.movable == true && infoPinch1.movable == true && infoPinch2.movable == true)
+                    {
+                        no = (gridY - 1) * Int(MapConfig.AREA_SIZE.width) + gridX - 1
                         tos.append(no)
                         costs.append(1)
                     }
@@ -665,10 +708,25 @@ internal class MapUtil {
                         costs.append(1)
                     }
                 }
+                //左
+                if(dictionary["\(gridX),\(gridY - 1)"] != nil && dictionary["\(gridX + 1),\(gridY)"] != nil && dictionary["\(gridX + 1),\(gridY - 1)"] != nil)
+                {
+                    info = dictionary["\(gridX + 1),\(gridY - 1)"]
+                    infoPinch1 = dictionary["\(gridX),\(gridY - 1)"]
+                    infoPinch2 = dictionary["\(gridX + 1),\(gridY)"]
+                    if (info.movable == true && infoPinch1.movable == true && infoPinch2.movable == true)
+                    {
+                        no = (gridY - 1) * Int(MapConfig.AREA_SIZE.width) + gridX + 1
+                        tos.append(no)
+                        costs.append(1)
+                    }
+                }
                 
                 no = Int(gridY) * Int(MapConfig.AREA_SIZE.width) + Int(gridX)
                 var node:Node = Node(edges_to: tos, edges_cost: costs, passages: [])
                 nodes[no] = node
+                
+                println(tos)
                 
                 gridX++
             }
