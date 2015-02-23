@@ -26,7 +26,7 @@ internal class MapConfig
     
     internal struct AreaSize
     {
-        var width:CGFloat = 100
-        var height:CGFloat = 100
+        var width:CGFloat = 50
+        var height:CGFloat = 50
     }
 }
