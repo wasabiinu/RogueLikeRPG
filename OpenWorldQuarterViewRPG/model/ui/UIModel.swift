@@ -12,6 +12,7 @@ class UIModel {
     var delegate:UIDelegate!;
     var node:SKNode;
     var ui:SKNode
+    var lock:Bool
     var scene:SKScene
     
     init (node:SKNode, ui:SKNode, scene:SKScene)
@@ -20,6 +21,7 @@ class UIModel {
         self.node = node
         self.scene = scene
         self.ui = ui
+        self.lock = false
         afterInit()
     }
     
@@ -105,39 +107,49 @@ class UIModel {
             var node:SKNode! = scene.nodeAtPoint(location);
             if(node != nil){
                 
-                if(node.name == "leftdown")
+                if(delegate.getModelLock() == false)
                 {
-                    MapUtil.onTouchCursor(0)
+                    if(node.name == "leftdown")
+                    {
+                        MapUtil.onTouchCursor(0)
+                        self.lock = true
+                    }
+                    else if(node.name == "down")
+                    {
+                        MapUtil.onTouchCursor(1)
+                        self.lock = true
+                    }
+                    else if(node.name == "rightdown")
+                    {
+                        MapUtil.onTouchCursor(2)
+                        self.lock = true
+                    }
+                    else if(node.name == "right")
+                    {
+                        MapUtil.onTouchCursor(3)
+                        self.lock = true
+                    }
+                    else if(node.name == "rightup")
+                    {
+                        MapUtil.onTouchCursor(4)
+                        self.lock = true
+                    }
+                    else if(node.name == "up")
+                    {
+                        MapUtil.onTouchCursor(5)
+                        self.lock = true
+                    }
+                    else if (node.name == "leftup")
+                    {
+                        MapUtil.onTouchCursor(6)
+                        self.lock = true
+                    }
+                    else if (node.name == "left")
+                    {
+                        MapUtil.onTouchCursor(7)
+                        self.lock = true
+                    }
                 }
-                else if(node.name == "down")
-                {
-                    MapUtil.onTouchCursor(1)
-                }
-                else if(node.name == "rightdown")
-                {
-                    MapUtil.onTouchCursor(2)
-                }
-                else if(node.name == "right")
-                {
-                    MapUtil.onTouchCursor(3)
-                }
-                else if(node.name == "rightup")
-                {
-                    MapUtil.onTouchCursor(4)
-                }
-                else if(node.name == "up")
-                {
-                    MapUtil.onTouchCursor(5)
-                }
-                else if (node.name == "leftup")
-                {
-                    MapUtil.onTouchCursor(6)
-                }
-                else if (node.name == "left")
-                {
-                    MapUtil.onTouchCursor(7)
-                }
-                
             }
         }
     }

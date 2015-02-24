@@ -31,4 +31,14 @@ class UIDelegate {
     {
         return self.model.scene
     }
+    
+    internal func getModelLock() -> Bool
+    {
+        return self.model.lock
+    }
+    
+    internal func sestModelLock(v:Bool)
+    {
+        self.model.lock = v
+    }
 }

@@ -110,6 +110,12 @@ internal class Avatar
                     }
                 }
                 
+                //タイマーマネージャーを作るまでの暫定対応
+                if( val >= 1)
+                {
+                    UIUtil.delegate.sestModelLock(false)
+                }
+                
             })
             spriteNode.runAction(walk)
         }
