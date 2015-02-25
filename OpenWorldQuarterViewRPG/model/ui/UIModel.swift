@@ -112,42 +112,34 @@ class UIModel {
                     if(node.name == "leftdown")
                     {
                         MapUtil.onTouchCursor(0)
-                        self.lock = true
                     }
                     else if(node.name == "down")
                     {
                         MapUtil.onTouchCursor(1)
-                        self.lock = true
                     }
                     else if(node.name == "rightdown")
                     {
                         MapUtil.onTouchCursor(2)
-                        self.lock = true
                     }
                     else if(node.name == "right")
                     {
                         MapUtil.onTouchCursor(3)
-                        self.lock = true
                     }
                     else if(node.name == "rightup")
                     {
                         MapUtil.onTouchCursor(4)
-                        self.lock = true
                     }
                     else if(node.name == "up")
                     {
                         MapUtil.onTouchCursor(5)
-                        self.lock = true
                     }
                     else if (node.name == "leftup")
                     {
                         MapUtil.onTouchCursor(6)
-                        self.lock = true
                     }
                     else if (node.name == "left")
                     {
                         MapUtil.onTouchCursor(7)
-                        self.lock = true
                     }
                 }
             }
@@ -163,8 +155,9 @@ class UIModel {
         UIUtil.drag(touches, touchPos:touchPos)
     }
     
-    internal func moveHero(callback:Void, option:[AnyObject])
+    internal func moveHero(callback:Void -> Void, option:[AnyObject])
     {
-        MapUtil.moveAvatar(option[0] as Avatar, direction: MapUtil.delegate.getModelHeroNextDirection())
+        print("UIModel::option.count:\(option.count)")
+        MapUtil.moveAvatar(option[0] as Avatar, direction: MapUtil.delegate.getModelHeroNextDirection(), callback:callback)
     }
 }

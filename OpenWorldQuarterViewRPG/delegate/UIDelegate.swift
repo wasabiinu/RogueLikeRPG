@@ -37,13 +37,14 @@ class UIDelegate {
         return self.model.lock
     }
     
-    internal func sestModelLock(v:Bool)
+    internal func setModelLock(v:Bool)
     {
         self.model.lock = v
     }
     
-    internal func moveHero(callback:Void, option:[AnyObject])
+    internal func moveHero(callback:Void -> Void, option:[AnyObject])
     {
+        println("UIDelegate::moveHero")
         self.model.moveHero(callback, option: option)
     }
 }

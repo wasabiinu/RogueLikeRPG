@@ -11,12 +11,12 @@ import Foundation
 internal class TimeManager
 {
     private struct ClassProperty {
-        static var funcArray:[(Void, [AnyObject]) -> Void] = []
+        static var funcArray:[((Void -> Void), [AnyObject]) -> Void] = []
         static var optionArray:[[AnyObject]] = [[AnyObject]]()
         static var callbackCount:Int = 0
     }
     
-    internal class var funcArray:[(Void, [AnyObject]) -> Void]
+    internal class var funcArray:[((Void -> Void), [AnyObject]) -> Void]
         {
         set {
             ClassProperty.funcArray = newValue
@@ -58,12 +58,14 @@ internal class TimeManager
     *　モンスタークラスの様に、増減するものは、マネージャーを介して登録する事
     *　このクラスに追加した関数は減らさない
     */
-    internal class func add(f:(Void, [AnyObject]) -> Void, anyObjects:AnyObject...)
+    internal class func add(f:((Void -> Void), [AnyObject]) -> Void, anyObjects:AnyObject...)
     {
+        println("TimeManager::add")
         var addArray:[AnyObject] = [AnyObject]()
         
         for a:AnyObject in anyObjects
         {
+            print("TimeManager::add:a:\(a)")
             addArray.append(a)
         }
         
@@ -76,11 +78,17 @@ internal class TimeManager
     */
     internal class func start()
     {
+        println("TimeManager::start")
         callbackCount = 0
         //ロックする
-        
+        UIUtil.delegate.setModelLock(true)
         //格納された関数を順に実行する
-        funcArray[callbackCount](onCallback(), optionArray[callbackCount])
+        func testFunc()
+        {
+            
+        }
+        
+        funcArray[callbackCount](onCallback, optionArray[callbackCount])
     }
     
     /**
@@ -88,19 +96,20 @@ internal class TimeManager
     */
     internal class func onCallback()
     {
+        println("TimeManager::onCallback")
         self.callbackCount++
         //登録された関数の残りを確認する
         if( self.callbackCount >= funcArray.count)
         {
             //ロック解除する
-            
+            UIUtil.delegate.setModelLock(false)
             //念のため関数カウントを初期化する
             self.callbackCount = 0
         }
         else
         {
             //格納された関数を順に実行する
-            funcArray[callbackCount](onCallback(), optionArray[callbackCount])
+            funcArray[callbackCount](onCallback, optionArray[callbackCount])
         }
     }
 }

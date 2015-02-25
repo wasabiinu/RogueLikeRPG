@@ -37,16 +37,7 @@ internal class MapModel {
     
     internal func onTouchCursor(direction:Int)
     {
-        MapUtil.moveAvatar(hero, direction:direction)
-    }
-    
-    internal func moveAvatar(avatar:Avatar, direction:Int)
-    {
-        if( avatar === self.hero)
-        {
-            heroNextDirection = direction
-        }
-        //MapUtil.moveAvatar(avatar, direction:direction)
+        heroNextDirection = direction
     }
     
     private func afterInit()

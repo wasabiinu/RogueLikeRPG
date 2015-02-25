@@ -12,6 +12,6 @@ internal class TimeModel
     init ()
     {
         //主人公を動かすのを追加
-        TimeManager.add(UIUtil.delegate.moveHero, anyObjects: [MapUtil.delegate.getModelHero()])
+        TimeManager.add(UIUtil.delegate.moveHero, anyObjects: MapUtil.delegate.getModelHero())
     }
 }

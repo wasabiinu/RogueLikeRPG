@@ -67,8 +67,9 @@ internal class MapUtil {
         centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene(), immidiate: direction == -1)
     }
     
-    internal class func moveAvatar(avatar:Avatar, direction:Int)
+    internal class func moveAvatar(avatar:Avatar, direction:Int, callback:Void -> Void)
     {
+        println("MapUtil::moveAvatar:avatar:\(avatar), direction:\(direction)")
         var nodes:[Node] = delegate.getModelNodes()
         var no:Int = avatar.nodeNo
         var ary:[Int] = nodes[no].edges_to
@@ -105,7 +106,7 @@ internal class MapUtil {
         {
             if (checkNo == moveNodeNo)
             {
-                avatar.position(moveNodeNo, direction:direction)
+                avatar.position(moveNodeNo, direction:direction, callback:callback)
             }
         }
     }
@@ -142,9 +143,14 @@ internal class MapUtil {
     
     internal class func addAvatar(no:Int, avatar:Avatar)
     {
-        avatar.position(no, direction: -1, immidiate: true )
+        avatar.position(no, direction: -1, immidiate: true, callback:onCompleteAddAvatar)
         avatar.spriteNode.zPosition = CGFloat(no * 2 + 1)
         self.delegate.getModelNode().addChild(avatar.spriteNode)
+    }
+    
+    internal class func onCompleteAddAvatar()
+    {
+        
     }
     
     //レクタングルを縦横どちらかランダムに2分割して返します

@@ -32,8 +32,8 @@ internal class Avatar
         self.nodeNo = 0
     }
     
-    func position(no:Int, direction:Int = 0, immidiate:Bool = false) {
-        
+    func position(no:Int, direction:Int = 0, immidiate:Bool = false, callback:Void -> Void) {
+        println("Avatar::position")
         var walk:SKAction
         if (direction == 0 || direction == 2)
         {
@@ -110,10 +110,10 @@ internal class Avatar
                     }
                 }
                 
-                //タイマーマネージャーを作るまでの暫定対応
+                
                 if( val >= 1)
                 {
-                    UIUtil.delegate.sestModelLock(false)
+                    callback()
                 }
                 
             })
