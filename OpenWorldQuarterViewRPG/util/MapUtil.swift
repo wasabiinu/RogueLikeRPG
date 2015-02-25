@@ -57,9 +57,12 @@ internal class MapUtil {
     
     internal class func onTouchCursor(direction:Int)
     {
+        
         if (direction >= 0)
         {
             delegate.onTouchCursor(direction)
+            //カーソルがタッチされたらタイマーを動かす
+            TimeManager.start()
         }
         centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene(), immidiate: direction == -1)
     }

@@ -14,6 +14,7 @@ internal class MapModel {
     internal var nodes:[Node]
     internal var startNo:Int
     internal var hero:Avatar
+    internal var heroNextDirection:Int
     internal var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
     
     init (node:SKNode, scene:SKNode)
@@ -23,6 +24,7 @@ internal class MapModel {
         self.nodes = [Node]()
         self.startNo = 0
         self.hero = Sabar()
+        self.heroNextDirection = 0
         self.scene = scene
         
         afterInit()
@@ -36,6 +38,15 @@ internal class MapModel {
     internal func onTouchCursor(direction:Int)
     {
         MapUtil.moveAvatar(hero, direction:direction)
+    }
+    
+    internal func moveAvatar(avatar:Avatar, direction:Int)
+    {
+        if( avatar === self.hero)
+        {
+            heroNextDirection = direction
+        }
+        //MapUtil.moveAvatar(avatar, direction:direction)
     }
     
     private func afterInit()

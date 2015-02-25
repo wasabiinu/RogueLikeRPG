@@ -41,4 +41,9 @@ class UIDelegate {
     {
         self.model.lock = v
     }
+    
+    internal func moveHero(callback:Void, option:[AnyObject])
+    {
+        self.model.moveHero(callback, option: option)
+    }
 }

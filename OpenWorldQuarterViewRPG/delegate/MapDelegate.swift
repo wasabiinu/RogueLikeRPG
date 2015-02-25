@@ -60,4 +60,9 @@ internal class MapDelegate {
         self.model.onTouchCursor(direction)
     }
     
+    internal func getModelHeroNextDirection() -> Int
+    {
+        return self.model.heroNextDirection
+    }
+    
 }

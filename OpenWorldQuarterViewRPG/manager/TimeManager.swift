@@ -8,7 +8,7 @@
 //1操作ある度に時間を1つ進める　＝　登録された関数を実行するクラス
 
 import Foundation
-internal class TimerManager
+internal class TimeManager
 {
     private struct ClassProperty {
         static var funcArray:[(Void, [AnyObject]) -> Void] = []
@@ -55,12 +55,14 @@ internal class TimerManager
     *
     *　タイマーマネージャーに実行したい関数を追加する
     *　指定する関数はFunction(callBack:Void, OptionArray)の形式を守る
+    *　モンスタークラスの様に、増減するものは、マネージャーを介して登録する事
+    *　このクラスに追加した関数は減らさない
     */
-    internal class func add(f:(Void, [AnyObject]) -> Void, anyObject:AnyObject...)
+    internal class func add(f:(Void, [AnyObject]) -> Void, anyObjects:AnyObject...)
     {
         var addArray:[AnyObject] = [AnyObject]()
         
-        for a:AnyObject in anyObject
+        for a:AnyObject in anyObjects
         {
             addArray.append(a)
         }

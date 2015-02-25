@@ -162,4 +162,9 @@ class UIModel {
         
         UIUtil.drag(touches, touchPos:touchPos)
     }
+    
+    internal func moveHero(callback:Void, option:[AnyObject])
+    {
+        MapUtil.moveAvatar(option[0] as Avatar, direction: MapUtil.delegate.getModelHeroNextDirection())
+    }
 }
