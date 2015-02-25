@@ -61,18 +61,64 @@ internal class MapUtil {
         if (direction >= 0)
         {
             delegate.onTouchCursor(direction)
-            //カーソルがタッチされたらタイマーを動かす
-            TimeManager.start()
+            
         }
-        centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene(), immidiate: direction == -1)
-    }
-    
-    internal class func moveAvatar(avatar:Avatar, direction:Int, callback:Void -> Void)
-    {
-        println("MapUtil::moveAvatar:avatar:\(avatar), direction:\(direction)")
+        
+        var avatar:Avatar = delegate.getModelHero()
         var nodes:[Node] = delegate.getModelNodes()
         var no:Int = avatar.nodeNo
         var ary:[Int] = nodes[no].edges_to
+        
+        for checkNo:Int in ary
+        {
+            if (checkMovable(avatar, direction:direction, checkNo:checkNo))
+            {
+                //カーソルがタッチされたらタイマーを動かす
+                TimeManager.start()
+            }
+        }
+        
+        centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene(), immidiate: direction == -1)
+    }
+    
+    internal class func checkMovable(avatar:Avatar, direction:Int, checkNo:Int) -> Bool
+    {
+        var nodes:[Node] = delegate.getModelNodes()
+        var no:Int = avatar.nodeNo
+        var moveNodeNo:Int = 0
+        switch (direction)
+        {
+        case 0:
+            moveNodeNo = no + 1
+            break
+        case 1:
+            moveNodeNo = no + Int(MapConfig.AREA_SIZE.width) + 1
+            break
+        case 2:
+            moveNodeNo = no + Int(MapConfig.AREA_SIZE.width)
+            break
+        case 3:
+            moveNodeNo = no + Int(MapConfig.AREA_SIZE.width) - 1
+            break
+        case 4:
+            moveNodeNo = no - 1
+            break
+        case 5:
+            moveNodeNo = no - Int(MapConfig.AREA_SIZE.width) - 1
+            break
+        case 6:
+            moveNodeNo = no - Int(MapConfig.AREA_SIZE.width)
+            break
+        default :
+            moveNodeNo = no - Int(MapConfig.AREA_SIZE.width) + 1
+            break
+        }
+        
+        return checkNo == moveNodeNo
+    }
+    
+    internal class func moveNodeNo(direction:Int, no:Int) -> Int
+    {
         var moveNodeNo:Int = 0
         switch (direction)
         {
@@ -102,11 +148,20 @@ internal class MapUtil {
             break
         }
         
+        return moveNodeNo
+    }
+    
+    internal class func moveAvatar(avatar:Avatar, direction:Int, callback:Void -> Void)
+    {
+        var nodes:[Node] = delegate.getModelNodes()
+        var no:Int = avatar.nodeNo
+        var ary:[Int] = nodes[no].edges_to
+        
         for checkNo:Int in ary
         {
-            if (checkNo == moveNodeNo)
+            if (checkMovable(avatar, direction:direction, checkNo:checkNo))
             {
-                avatar.position(moveNodeNo, direction:direction, callback:callback)
+                avatar.position(self.moveNodeNo(direction, no:no), direction:direction, callback:callback)
             }
         }
     }

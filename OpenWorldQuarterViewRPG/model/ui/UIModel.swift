@@ -157,7 +157,6 @@ class UIModel {
     
     internal func moveHero(callback:Void -> Void, option:[AnyObject])
     {
-        print("UIModel::option.count:\(option.count)")
         MapUtil.moveAvatar(option[0] as Avatar, direction: MapUtil.delegate.getModelHeroNextDirection(), callback:callback)
     }
 }

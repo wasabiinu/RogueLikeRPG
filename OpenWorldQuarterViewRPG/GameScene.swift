@@ -9,8 +9,9 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    private var mapModel:MapModel!;
-    private var uiModel:UIModel!;
+    private var mapModel:MapModel!
+    private var uiModel:UIModel!
+    private var timeModel:TimeModel!
     private var myWorld:SKNode = SKNode()
     private var myUI:SKNode = SKNode()
     override func didMoveToView(view: SKView) {
@@ -33,6 +34,8 @@ class GameScene: SKScene {
         
         mapModel = MapModel(node: myWorld, scene:self)
         uiModel = UIModel(node: myWorld, ui:myUI, scene:self)
+        
+        timeModel = TimeModel()
         
         self.addChild(myWorld)
         self.addChild(myUI)

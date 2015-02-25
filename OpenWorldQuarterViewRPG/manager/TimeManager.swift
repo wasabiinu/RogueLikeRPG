@@ -60,12 +60,10 @@ internal class TimeManager
     */
     internal class func add(f:((Void -> Void), [AnyObject]) -> Void, anyObjects:AnyObject...)
     {
-        println("TimeManager::add")
         var addArray:[AnyObject] = [AnyObject]()
         
         for a:AnyObject in anyObjects
         {
-            print("TimeManager::add:a:\(a)")
             addArray.append(a)
         }
         
@@ -78,7 +76,6 @@ internal class TimeManager
     */
     internal class func start()
     {
-        println("TimeManager::start")
         callbackCount = 0
         //ロックする
         UIUtil.delegate.setModelLock(true)
@@ -96,7 +93,6 @@ internal class TimeManager
     */
     internal class func onCallback()
     {
-        println("TimeManager::onCallback")
         self.callbackCount++
         //登録された関数の残りを確認する
         if( self.callbackCount >= funcArray.count)

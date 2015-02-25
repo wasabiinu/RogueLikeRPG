@@ -135,7 +135,7 @@ class AloeTween{
         }
         
         deinit{
-            println("deinit tweenObject")
+            //println("deinit tweenObject")
         }
     }
 }

@@ -11,6 +11,7 @@ internal class TimeModel
 {
     init ()
     {
+        //タイマーマネージャークラスを使う関数を順番に追加していく
         //主人公を動かすのを追加
         TimeManager.add(UIUtil.delegate.moveHero, anyObjects: MapUtil.delegate.getModelHero())
     }

@@ -33,7 +33,6 @@ internal class Avatar
     }
     
     func position(no:Int, direction:Int = 0, immidiate:Bool = false, callback:Void -> Void) {
-        println("Avatar::position")
         var walk:SKAction
         if (direction == 0 || direction == 2)
         {
@@ -109,8 +108,6 @@ internal class Avatar
                         self.spriteNode.zPosition = CGFloat(no * 2 + 1)
                     }
                 }
-                
-                
                 if( val >= 1)
                 {
                     callback()

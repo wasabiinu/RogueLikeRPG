@@ -44,7 +44,6 @@ class UIDelegate {
     
     internal func moveHero(callback:Void -> Void, option:[AnyObject])
     {
-        println("UIDelegate::moveHero")
         self.model.moveHero(callback, option: option)
     }
 }
