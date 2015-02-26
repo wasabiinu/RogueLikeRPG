@@ -79,11 +79,6 @@ internal class TimeManager
         callbackCount = 0
         //ロックする
         UIUtil.delegate.setModelLock(true)
-        //格納された関数を順に実行する
-        func testFunc()
-        {
-            
-        }
         
         funcArray[callbackCount](onCallback, optionArray[callbackCount])
     }
