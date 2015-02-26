@@ -157,6 +157,6 @@ class UIModel {
     
     internal func moveHero(callback:Void -> Void, option:[AnyObject])
     {
-        MapUtil.moveAvatar(option[0] as Avatar, direction: MapUtil.delegate.getModelHeroNextDirection(), callback:callback)
+        MapUtil.moveAvatar(option[0] as Avatar, direction: HeroManager.getNextDirection(), callback:callback)
     }
 }

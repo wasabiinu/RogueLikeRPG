@@ -34,18 +34,74 @@ internal class HeroManager
         }
     }
     
+    internal class var mode:String
+        {
+        set {
+        ClassProperty.mode = newValue
+        }
+        get {
+            return ClassProperty.mode
+        }
+    }
+    
     private struct ClassProperty {
         static var nextDirection:Int!
         static var hero:Avatar!
+        static var mode:String = ""
+    }
+    
+    internal class func setHero(avatar:Avatar)
+    {
+        self.hero = avatar
+    }
+    
+    internal class func getHero() -> Avatar
+    {
+        return self.hero
+    }
+    
+    internal class func setNextDirection(direction:Int)
+    {
+        self.nextDirection = direction
+    }
+    
+    internal class func getNextDirection() -> Int
+    {
+        return self.nextDirection
     }
     
     internal class func onTouchCursor(direction:Int)
     {
-        
+        self.mode = "move"
     }
     
     internal class func onTouchAttack()
     {
-        
+        self.mode = "attack"
+    }
+    
+    internal class func action(callback:Void -> Void, option:[AnyObject])
+    {
+        switch self.mode
+        {
+            case "move":
+                moveHero(callback, option: option)
+            break
+            case "attack":
+                attackHero(callback, option: option)
+            break
+            default:
+                moveHero(callback, option: option)
+            break
+        }
+    }
+    
+    internal class func moveHero(callback:Void -> Void, option:[AnyObject])
+    {
+        UIUtil.delegate.moveHero(callback, option: option)
+    }
+    
+    internal class func attackHero(callback:Void -> Void, option:[AnyObject])
+    {
     }
 }

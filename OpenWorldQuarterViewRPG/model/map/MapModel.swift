@@ -13,8 +13,8 @@ internal class MapModel {
     internal var scene:SKNode
     internal var nodes:[Node]
     internal var startNo:Int
-    internal var hero:Avatar
-    internal var heroNextDirection:Int
+    //internal var hero:Avatar
+    //internal var heroNextDirection:Int
     internal var chipInfoDicionary:Dictionary<String, ChipInfo> = Dictionary<String, ChipInfo>()
     
     init (node:SKNode, scene:SKNode)
@@ -23,8 +23,9 @@ internal class MapModel {
         self.node = node
         self.nodes = [Node]()
         self.startNo = 0
-        self.hero = Sabar()
-        self.heroNextDirection = 0
+        HeroManager.setHero(Sabar())
+        HeroManager.setNextDirection(0)
+        
         self.scene = scene
         
         afterInit()
@@ -37,7 +38,7 @@ internal class MapModel {
     
     internal func onTouchCursor(direction:Int)
     {
-        heroNextDirection = direction
+        HeroManager.setNextDirection(direction)
     }
     
     private func afterInit()
@@ -51,7 +52,7 @@ internal class MapModel {
         //Nodeを作る
         nodes = MapUtil.createNode()
         //キャラクターを配置する
-        MapUtil.addAvatar(startNo, avatar:hero)
+        MapUtil.addAvatar(startNo, avatar:HeroManager.getHero())
         //描画する
         MapUtil.draw()
         //カメラを主人公の位置に移動させる

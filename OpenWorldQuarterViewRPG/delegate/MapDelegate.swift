@@ -35,11 +35,6 @@ internal class MapDelegate {
         return self.model.nodes
     }
     
-    internal func getModelHero() -> Avatar
-    {
-        return self.model.hero
-    }
-    
     internal func getModelChipDictionary() -> Dictionary<String, ChipInfo>
     {
         return self.model.chipInfoDicionary
@@ -58,11 +53,6 @@ internal class MapDelegate {
     internal func onTouchCursor(direction:Int)
     {
         self.model.onTouchCursor(direction)
-    }
-    
-    internal func getModelHeroNextDirection() -> Int
-    {
-        return self.model.heroNextDirection
     }
     
 }

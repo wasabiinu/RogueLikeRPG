@@ -64,7 +64,7 @@ internal class MapUtil {
             
         }
         
-        var avatar:Avatar = delegate.getModelHero()
+        var avatar:Avatar = HeroManager.getHero()
         var nodes:[Node] = delegate.getModelNodes()
         var no:Int = avatar.nodeNo
         var ary:[Int] = nodes[no].edges_to
@@ -74,11 +74,12 @@ internal class MapUtil {
             if (checkMovable(avatar, direction:direction, checkNo:checkNo))
             {
                 //カーソルがタッチされたらタイマーを動かす
+                HeroManager.onTouchCursor(direction)
                 TimeManager.start()
             }
         }
         
-        centerOnAvatar(delegate.getModelHero(), scene: delegate.getModelScene(), immidiate: direction == -1)
+        centerOnAvatar(HeroManager.getHero(), scene: delegate.getModelScene(), immidiate: direction == -1)
     }
     
     internal class func checkMovable(avatar:Avatar, direction:Int, checkNo:Int) -> Bool
