@@ -61,21 +61,19 @@ internal class MapUtil {
         if (direction >= 0)
         {
             delegate.onTouchCursor(direction)
+            var avatar:Avatar = HeroManager.getHero()
+            var nodes:[Node] = delegate.getModelNodes()
+            var no:Int = avatar.nodeNo
+            var ary:[Int] = nodes[no].edges_to
             
-        }
-        
-        var avatar:Avatar = HeroManager.getHero()
-        var nodes:[Node] = delegate.getModelNodes()
-        var no:Int = avatar.nodeNo
-        var ary:[Int] = nodes[no].edges_to
-        
-        for checkNo:Int in ary
-        {
-            if (checkMovable(avatar, direction:direction, checkNo:checkNo))
+            for checkNo:Int in ary
             {
-                //カーソルがタッチされたらタイマーを動かす
-                HeroManager.onTouchCursor(direction)
-                TimeManager.start()
+                if (checkMovable(avatar, direction:direction, checkNo:checkNo))
+                {
+                    //カーソルがタッチされたらタイマーを動かす
+                    HeroManager.onTouchCursor(direction)
+                    TimeManager.start()
+                }
             }
         }
         

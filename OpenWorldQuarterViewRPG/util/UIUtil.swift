@@ -71,9 +71,9 @@ class UIUtil {
     class func createPinchRect(touches:NSSet, node:SKNode) -> CGRect
     {
         //println("createPinchRect")
-        println(touches)
-        println(touches.count)
-        println(node)
+        //println(touches)
+        //println(touches.count)
+        //println(node)
         if (touches.count == 2)
         {
             var touchArray:Array<UITouch> = Array<UITouch>()
@@ -117,14 +117,14 @@ class UIUtil {
                 var endRect = createPinchRect(touches, node:delegate.getModelScene())
                 if (endRect.size.width * endRect.size.height > pinchRect.size.width * pinchRect.size.height)
                 {
-                    println("pinchOut")
+                    //println("pinchOut")
                     delegate.getModelNode().xScale *= 1.02
                     delegate.getModelNode().yScale *= 1.02
                     MapUtil.onTouchCursor(-1)
                 }
                 else if (pinchRect.size.width * pinchRect.size.height > endRect.size.width * endRect.size.height)
                 {
-                    println("pinchIn")
+                    //println("pinchIn")
                     delegate.getModelNode().xScale /= 1.02
                     delegate.getModelNode().yScale /= 1.02
                     MapUtil.onTouchCursor(-1)
