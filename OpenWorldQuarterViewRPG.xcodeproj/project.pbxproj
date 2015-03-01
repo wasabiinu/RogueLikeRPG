@@ -69,6 +69,8 @@
 		208F793D1A9A338200D71927 /* avatar.human.saber.walk.2.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 208F793A1A9A338200D71927 /* avatar.human.saber.walk.2.2.png */; };
 		208F79401A9CB14300D71927 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208F793F1A9CB14300D71927 /* TimeManager.swift */; };
 		208F79431A9E0A2800D71927 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208F79421A9E0A2800D71927 /* TimeModel.swift */; };
+		20A3FB2A1AA1BB42009B3F45 /* EnemyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A3FB291AA1BB42009B3F45 /* EnemyManager.swift */; };
+		20A3FB2C1AA1BBE9009B3F45 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A3FB2B1AA1BBE9009B3F45 /* Enemy.swift */; };
 		C3318F0C1A9ECF5100EE939D /* HeroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3318F0B1A9ECF5100EE939D /* HeroManager.swift */; };
 		C37132231A919B4C0085F2C0 /* NeighborRoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37132211A919B4C0085F2C0 /* NeighborRoomInfo.swift */; };
 		C37132241A919B4C0085F2C0 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37132221A919B4C0085F2C0 /* RoomInfo.swift */; };
@@ -154,6 +156,11 @@
 		208F793A1A9A338200D71927 /* avatar.human.saber.walk.2.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.human.saber.walk.2.2.png; sourceTree = "<group>"; };
 		208F793F1A9CB14300D71927 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		208F79421A9E0A2800D71927 /* TimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
+		20A3FB291AA1BB42009B3F45 /* EnemyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyManager.swift; sourceTree = "<group>"; };
+		20A3FB2B1AA1BBE9009B3F45 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		20D004531AA354E60096D445 /* ひな形.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ひな形.psd"; sourceTree = "<group>"; };
+		20D004541AA36D840096D445 /* 主人公１.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "主人公１.psd"; sourceTree = "<group>"; };
+		20D004551AA37EE50096D445 /* キャラクターひな形.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "キャラクターひな形.psd"; sourceTree = "<group>"; };
 		C3318F0B1A9ECF5100EE939D /* HeroManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroManager.swift; sourceTree = "<group>"; };
 		C37132211A919B4C0085F2C0 /* NeighborRoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborRoomInfo.swift; sourceTree = "<group>"; };
 		C37132221A919B4C0085F2C0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
@@ -224,6 +231,7 @@
 				201953A31A99A99700286070 /* Avatar.swift */,
 				201953A51A99D29600286070 /* Human.swift */,
 				201953A71A99D2BE00286070 /* Sabar.swift */,
+				20A3FB2B1AA1BBE9009B3F45 /* Enemy.swift */,
 			);
 			name = avatar;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 		2028ED921A824F4700894577 = {
 			isa = PBXGroup;
 			children = (
+				20D004521AA354CE0096D445 /* 素材 */,
 				2028ED9D1A824F4700894577 /* OpenWorldQuarterViewRPG */,
 				2028EDB71A824F4700894577 /* OpenWorldQuarterViewRPGTests */,
 				2028ED9C1A824F4700894577 /* Products */,
@@ -486,6 +495,7 @@
 			children = (
 				208F793F1A9CB14300D71927 /* TimeManager.swift */,
 				C3318F0B1A9ECF5100EE939D /* HeroManager.swift */,
+				20A3FB291AA1BB42009B3F45 /* EnemyManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -496,6 +506,16 @@
 				208F79421A9E0A2800D71927 /* TimeModel.swift */,
 			);
 			path = time;
+			sourceTree = "<group>";
+		};
+		20D004521AA354CE0096D445 /* 素材 */ = {
+			isa = PBXGroup;
+			children = (
+				20D004541AA36D840096D445 /* 主人公１.psd */,
+				20D004551AA37EE50096D445 /* キャラクターひな形.psd */,
+				20D004531AA354E60096D445 /* ひな形.psd */,
+			);
+			path = "素材";
 			sourceTree = "<group>";
 		};
 		C3E166081A8C577A00B9CAAC /* ui */ = {
@@ -656,12 +676,14 @@
 				208C7A391A876F7D0086DB72 /* MapDelegate.swift in Sources */,
 				201953A81A99D2BE00286070 /* Sabar.swift in Sources */,
 				201953B91A99E3CF00286070 /* Cursor.swift in Sources */,
+				20A3FB2A1AA1BB42009B3F45 /* EnemyManager.swift in Sources */,
 				208F79431A9E0A2800D71927 /* TimeModel.swift in Sources */,
 				201953C21A9A224800286070 /* Tween.swift in Sources */,
 				206430D51A90FF2500A52BBC /* Random.swift in Sources */,
 				205EE9771A988291008E569D /* Node.swift in Sources */,
 				C3318F0C1A9ECF5100EE939D /* HeroManager.swift in Sources */,
 				208C7A221A8618FF0086DB72 /* RectTestChip.swift in Sources */,
+				20A3FB2C1AA1BBE9009B3F45 /* Enemy.swift in Sources */,
 				208C7A201A8618AD0086DB72 /* GroundGreen.swift in Sources */,
 				2019539B1A98B96C00286070 /* MapConfig.swift in Sources */,
 				2028EDA71A824F4700894577 /* GameViewController.swift in Sources */,
