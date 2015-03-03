@@ -161,6 +161,7 @@
 		20D004531AA354E60096D445 /* ひな形.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ひな形.psd"; sourceTree = "<group>"; };
 		20D004541AA36D840096D445 /* 主人公１.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "主人公１.psd"; sourceTree = "<group>"; };
 		20D004551AA37EE50096D445 /* キャラクターひな形.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "キャラクターひな形.psd"; sourceTree = "<group>"; };
+		20D004561AA4D5180096D445 /* ひな形64.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ひな形64.psd"; sourceTree = "<group>"; };
 		C3318F0B1A9ECF5100EE939D /* HeroManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroManager.swift; sourceTree = "<group>"; };
 		C37132211A919B4C0085F2C0 /* NeighborRoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborRoomInfo.swift; sourceTree = "<group>"; };
 		C37132221A919B4C0085F2C0 /* RoomInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
@@ -513,6 +514,7 @@
 			children = (
 				20D004541AA36D840096D445 /* 主人公１.psd */,
 				20D004551AA37EE50096D445 /* キャラクターひな形.psd */,
+				20D004561AA4D5180096D445 /* ひな形64.psd */,
 				20D004531AA354E60096D445 /* ひな形.psd */,
 			);
 			path = "素材";
