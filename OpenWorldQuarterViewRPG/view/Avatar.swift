@@ -14,8 +14,8 @@ internal class Avatar
 {
     internal var spriteNode:SKSpriteNode
     internal var nodeNo:Int
-    internal var walk0Textures:[SKTexture]
     internal var walk1Textures:[SKTexture]
+    internal var walk2Textures:[SKTexture]
     internal var walk3Textures:[SKTexture]
     internal var walk4Textures:[SKTexture]
     internal var walk5Textures:[SKTexture]
@@ -24,8 +24,8 @@ internal class Avatar
         spriteNode = SKSpriteNode(texture: texture)
         spriteNode.xScale = 0.5
         spriteNode.yScale = 0.5
-        walk0Textures = [SKTexture]()
         walk1Textures = [SKTexture]()
+        walk2Textures = [SKTexture]()
         walk3Textures = [SKTexture]()
         walk4Textures = [SKTexture]()
         walk5Textures = [SKTexture]()
@@ -36,26 +36,26 @@ internal class Avatar
         var walk:SKAction
         if (direction == 0 || direction == 2)
         {
-            walk = SKAction.animateWithTextures(walk0Textures, timePerFrame: 0.2)
+            walk = SKAction.animateWithTextures(walk2Textures, timePerFrame: 0.17)
         }
         else if(direction == 1)
         {
-            walk = SKAction.animateWithTextures(walk1Textures, timePerFrame: 0.2)
+            walk = SKAction.animateWithTextures(walk1Textures, timePerFrame: 0.17)
         }
         else if(direction == 3 || direction == 7)
         {
-            walk = SKAction.animateWithTextures(walk3Textures, timePerFrame: 0.2)
+            walk = SKAction.animateWithTextures(walk3Textures, timePerFrame: 0.17)
         }
         else if(direction == 4 || direction == 6)
         {
-            walk = SKAction.animateWithTextures(walk4Textures, timePerFrame: 0.2)
+            walk = SKAction.animateWithTextures(walk4Textures, timePerFrame: 0.17)
         }
         else
         {
-            walk = SKAction.animateWithTextures(walk5Textures, timePerFrame: 0.2)
+            walk = SKAction.animateWithTextures(walk5Textures, timePerFrame: 0.17)
         }
         
-        if (direction == 2 || direction == 6 || direction == 3)
+        if (direction == 0 || direction == 6 || direction == 7)
         {
             if (self.spriteNode.xScale > 0)
             {
@@ -92,7 +92,7 @@ internal class Avatar
         }
         else
         {
-            AloeTween.doTween(0.4, ease: AloeEase.None, progress: { (val) -> () in
+            AloeTween.doTween(0.6, ease: AloeEase.None, progress: { (val) -> () in
                 self.spriteNode.position = CGPointMake(oldX + diffX * val, oldY + diffY * val)
                 if (direction >= 4)
                 {

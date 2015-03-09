@@ -49,7 +49,7 @@ internal class MapUtil {
             self.delegate.getModelNode().position = CGPointMake(newX, newY)
         }
         else{
-            AloeTween.doTween(0.4, ease: AloeEase.None, progress: { (val) -> () in
+            AloeTween.doTween(0.6, ease: AloeEase.None, progress: { (val) -> () in
                 self.delegate.getModelNode().position = CGPointMake(oldX + diffX * val, oldY + diffY * val)
             })
         }

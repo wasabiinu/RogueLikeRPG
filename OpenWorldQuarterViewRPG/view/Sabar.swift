@@ -12,9 +12,9 @@ internal class Sabar: Human
 {
     init() {
         super.init(imageName: "avatar.human.saber.default.png")
-        super.walk0Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.0.png"))
-        super.walk0Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.1.png"))
-        super.walk0Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.2.png"))
+        super.walk2Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.0.png"))
+        super.walk2Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.1.png"))
+        super.walk2Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.2.png"))
         super.walk1Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.0.png"))
         super.walk1Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.1.png"))
         super.walk1Textures.append(SKTexture(imageNamed: "avatar.human.saber.walk.0.2.png"))
