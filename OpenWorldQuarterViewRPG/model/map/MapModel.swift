@@ -23,7 +23,7 @@ internal class MapModel {
         self.node = node
         self.nodes = [Node]()
         self.startNo = 0
-        HeroManager.setHero(Sabar())
+        HeroManager.setHero(TestHero())
         HeroManager.setNextDirection(0)
         
         self.scene = scene
