@@ -84,7 +84,7 @@ public class UIModel {
         upButton.spriteNode.name = "up"
         upButton.spriteNode.position = CGPoint(x: -225, y: -275)
         
-       
+        
         ui.addChild(leftButton.spriteNode)
         ui.addChild(downButton.spriteNode)
         ui.addChild(rightButton.spriteNode)

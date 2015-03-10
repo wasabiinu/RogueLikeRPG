@@ -7,7 +7,7 @@
 //
 import SpriteKit
 
-public class MapModel {
+internal class MapModel {
     internal var delegate:MapDelegate!
     internal var node:SKNode
     internal var scene:SKNode
